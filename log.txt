@@ -1,0 +1,456 @@
+[2026-09-07 19:19:14.848] 微信语音播报插件已加载, 总开关=true
+[2026-09-07 19:19:15.117] TTS 初始化成功
+[2026-09-07 19:25:54.881] 开始构建设置窗口
+[2026-09-07 19:25:55.892] 设置窗口已显示
+[2026-09-07 19:31:04.063] 开始构建白名单选择窗口: 选择好友（共 357 个）
+[2026-09-07 19:31:04.232] 缓存friend列表: 358 项
+[2026-09-07 19:31:04.233] 列表总数: 358
+[2026-09-07 19:31:04.421] 选择窗口已显示
+[2026-09-07 19:35:26.270] 仅@播报诊断2: content=wxid_xmhgf51rit6m22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="7966" length="13383" aeskey="42bce09605a6345f5fbd89d5b9f8e28e" voiceurl="7f0c000802203008cec446fcb23b5ec02c40dccbfe4046b6caa731755e32ab3abbe39d1fd7db0301090f0001d068000401050300000006fbefb70107f5c48e880308020000000009000a010b010cfcc2fad4060d000e000f4e10cdfcfd8605110426b7b01e" clientmsgid="41363939326238373239656535386200newSendVoice_151935090726a45f4e62940100" fromusername="wxid_xmhgf51rit6m22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:35:29.076] 仅@播报诊断2: content=wxid_xmhgf51rit6m22:0:0:55f40f5818394345ac1c110dd575cc7d:wxid_xmhgf51rit6m22*#*
+<msg><emoji fromusername="wxid_xmhgf51rit6m22" tousername="8580032739@chatroom" type="2" idbuffer="media*#*0_0" md5="55f40f5818394345ac1c110dd575cc7d" len="685983" productid="" androidmd5="55f40f5818394345ac1c110dd575cc7d" androidlen="685983" s60v3md5="55f40f5818394345ac1c110dd575cc7d" s60v3len="685983" s60v5md5="55f40f5818394345ac1c110dd575cc7d" s60v5len="685983" cdnurl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=55f40f5818394345ac1c110dd575cc7d&amp;filekey=30350201010421301f0202010604025348041055f40f5818394345ac1c110dd575cc7d02030a779f040d00000004627466730000000132&amp;hy=SH&amp;storeid=2630ff956000416d4000000000000010600004f50534808e67b40b65ec5871&amp;bizid=1023" designerid="" thumburl="" encrypturl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=cbfd436c2f040df4a1f7aea7d221e1aa&amp;filekey=30350201010421301f020201060402535a0410cbfd436c2f040df4a1f7aea7d221e1aa02030a77a0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=2630ff956000e3780000000000000010600004f50535a20c27880963a4f93e&amp;bizid=1023" aeskey="9b3fd4743a6f77dbfd5484b46cf79ad3" externurl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=757609d3ce368909d28c90fdfd9d86d8&amp;filekey=30350201010421301f02020106040253480410757609d3ce368909d28c90fdfd9d86d8020300b950040d00000004627466730000000132&amp;hy=SH&amp;storeid=2630ff9570003567d000000000000010600004f5053480ba67b40b65e3982c&amp;bizid=1023" externmd5="608495fafec68655ebbc6aec253b2cd5" width="283" height="272" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:35:31.280] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/da/89/msg_261935090726a45f4e65193105.amr 耗时=105ms
+[2026-09-07 19:35:51.704] 仅@播报诊断2: content=wxid_xmhgf51rit6m22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="8611" length="15243" aeskey="b3f9938b42c1e63dee0eaa20eb13ea00" voiceurl="7f0c000102202cd0abc33009925df091cd67cf2ba61054a0d22952e525b8b4a610dd62bee8850301090f00019077000401050300000006fbefb70107f5c48e880308020000000009000a010b010c96c3fad4060d000e000f4e1085a0b7f007110426b7b01e" clientmsgid="41363939326238373239656535386200newSendVoice_411935090726a45f4e68cb3100" fromusername="wxid_xmhgf51rit6m22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:35:54.321] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/b4/52/msg_511935090726a45f4e6b5a8106.amr 耗时=59ms
+[2026-09-07 19:36:41.939] 仅@播报诊断2: content=wxid_xmhgf51rit6m22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="4776" length="7800" aeskey="3169d156267cced0a87ea3302a3bd99b" voiceurl="7f0c00020220df3988fd17c90978b790f7244e932209fdce13d32b4fc5734ba382929f8204780301090f0001803d0004010503000000069bb2bd0107f8d293b90a08020000000009000a020b010cc9c3fad4060d000e000f4e10c3de84d607110426b7b01e" clientmsgid="41363939326238373239656535386200newSendVoice_351936090726a45f4e66106106" fromusername="wxid_xmhgf51rit6m22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:36:45.830] 仅@播报诊断2: content=wxid_xmhgf51rit6m22:0:0:55f40f5818394345ac1c110dd575cc7d:wxid_xmhgf51rit6m22*#*
+<msg><emoji fromusername="wxid_xmhgf51rit6m22" tousername="8580032739@chatroom" type="2" idbuffer="media*#*0_0" md5="55f40f5818394345ac1c110dd575cc7d" len="685983" productid="" androidmd5="55f40f5818394345ac1c110dd575cc7d" androidlen="685983" s60v3md5="55f40f5818394345ac1c110dd575cc7d" s60v3len="685983" s60v5md5="55f40f5818394345ac1c110dd575cc7d" s60v5len="685983" cdnurl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=55f40f5818394345ac1c110dd575cc7d&amp;filekey=30350201010421301f0202010604025348041055f40f5818394345ac1c110dd575cc7d02030a779f040d00000004627466730000000132&amp;hy=SH&amp;storeid=2630ff956000416d4000000000000010600004f50534808e67b40b65ec5871&amp;bizid=1023" designerid="" thumburl="" encrypturl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=cbfd436c2f040df4a1f7aea7d221e1aa&amp;filekey=30350201010421301f020201060402535a0410cbfd436c2f040df4a1f7aea7d221e1aa02030a77a0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=2630ff956000e3780000000000000010600004f50535a20c27880963a4f93e&amp;bizid=1023" aeskey="9b3fd4743a6f77dbfd5484b46cf79ad3" externurl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=757609d3ce368909d28c90fdfd9d86d8&amp;filekey=30350201010421301f02020106040253480410757609d3ce368909d28c90fdfd9d86d8020300b950040d00000004627466730000000132&amp;hy=SH&amp;storeid=2630ff9570003567d000000000000010600004f5053480ba67b40b65e3982c&amp;bizid=1023" externmd5="608495fafec68655ebbc6aec253b2cd5" width="283" height="272" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:36:46.687] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/a8/8d/msg_411936090726a45f4e679f3103.amr 耗时=39ms
+[2026-09-07 19:37:09.142] 仅@播报诊断2: content=wxid_l7mlqr7lb0zd22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="3347" length="5163" aeskey="a0f6d2f275ca3da64f3919184dfb0f4f" voiceurl="7f0c000102200d4003f0847aeefc28e5eff5a686f65d947ace32acf5340a6698fb1f5bbd7cc90301090f0001b028000401050300000006fbefb70107f5c48e900208020000000009000a010b010ce4c3fad4060d000e000f4e10a5d9c68a051104e82c7205" clientmsgid="41386363653661396461653231626500041937090726e2bb352d0e6102" fromusername="wxid_l7mlqr7lb0zd22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:37:11.668] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/3b/92/msg_091937090726e2bb352e428104.amr 耗时=55ms
+[2026-09-07 19:37:57.349] 仅@播报诊断2: content=wxid_xmhgf51rit6m22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="13306" length="23194" aeskey="8d2657e2ff8757934f7591e144f871fd" voiceurl="7f0c00040220e8f6077d95135a2fa0c27abd61d0e752d8d649a382de5e7bb26ff9699f1376a50301090f0001a0b5010004010503000000069bb2bd0107f8d293b90a08020000000009000a020b010c94c4fad4060d000e000f4e10b1e7aca903110426b7b01e" clientmsgid="41363939326238373239656535386200newSendVoice_421937090726a45f4e665c5104" fromusername="wxid_xmhgf51rit6m22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:38:02.157] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/fe/d1/msg_571937090726a45f4e6a077101.amr 耗时=58ms
+[2026-09-07 19:38:07.544] 仅@播报诊断2: content=wxid_xmhgf51rit6m22: <msg><voicemsg endflag="1" voiceformat="4" voicelength="4753" length="8116" aeskey="ec1c0d33147e140fedbd7aa76c295886" voiceurl="7f0c00070220b38f7c9f167a0e89d3ca7dade85f1c28bccc1bc31eaf907010dce97cdb5f1a3f0301090f0001c03f0004010503000000069bb2bd0107f8d293b90a08020000000009000a020b010c9ec4fad4060d000e000f4e10d596a4d204110426b7b01e" clientmsgid="41363939326238373239656535386200newSendVoice_001938090726a45f4e6aec3100" fromusername="wxid_xmhgf51rit6m22" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:38:17.078] 仅@播报诊断2: content=wxid_xmhgf51rit6m22:0:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:38:18.212] 语音路径直达: /data/user/0/com.tencent.mm/MicroMsg/ddd9675ff986b9d85af0b101e228a7e9/voice2/21/3a/msg_071938090726a45f4e6c857103.amr 耗时=69ms
+[2026-09-07 19:40:17.153] 仅@播报诊断2: content=山顶东西，死父贵 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 19:40:29.874] 仅@播报诊断2: content=瓶脉动15 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:00:04.765] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg bigheadimgurl="https://wework.qpic.cn/wwpicovs/150617_2uEmYgmZT1S4EqD_1788765342/0" smallheadimgurl="https://wework.qpic.cn/wwpicovs/150617_2uEmYgmZT1S4EqD_1788765342/140" username="25984982515744598@openim" nickname="點硪棚友圈进入" sex="1" openimappid="3552365301" openimcustominfo="" ticket="v1_5c41e496114342a72284ad7476f68511ed6a0011aa9f6c329d4733841f016c68814de108e47a88e1fa94410e3c1f225c5b652427bd17038a9a533e76e066a4a9494ec6d3fe7d932f9039f044c33eef930d007011e63f184a8d0e9aad07db01c1c84fa191b35b576cbb156d36f2d43368cd03d011290c2ab6bb1616710751bbc6142400f2a15a5a7180a994a9f0da44629cb02da5a99f62d03b0742ca99ae41bed0c5727c66dd9b1bbe19b7c1a46eefc49e9174082ecb50dd076c5b0233459d08" openimdesc="Bvjkg" openimdescicon="" tp_ticket="" />
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:00:04.829] 仅@播报诊断2: content=nani2749:0:0:d8500e35109d719c287cbcff0c57b7af:nani2749*#*
+<msg><emoji fromusername="nani2749" tousername="23020891515@chatroom" type="2" idbuffer="media*#*0_0" md5="d8500e35109d719c287cbcff0c57b7af" len="71803" productid="com.tencent.xin.emoticon.person.stiker_1594284673e338916129d7e96c" androidmd5="d8500e35109d719c287cbcff0c57b7af" androidlen="71803" s60v3md5="d8500e35109d719c287cbcff0c57b7af" s60v3len="71803" s60v5md5="d8500e35109d719c287cbcff0c57b7af" s60v5len="71803" cdnurl="http*#*//wxapp.tc.qq.com/275/20304/stodownload?m=d8500e35109d719c287cbcff0c57b7af&amp;filekey=30350201010421301f02020113040253480410d8500e35109d719c287cbcff0c57b7af020301187b040d00000004627466730000000132&amp;hy=SH&amp;storeid=2668682d700038e71b4560d4b0000011300004f50534829880bc1e6ff61d19&amp;bizid=1023" designerid="" thumburl="http*#*//wxapp.tc.qq.com/275/20304/stodownload?m=937835c74fddf89e30fb50ed4466be8d&amp;filekey=30350201010421301f02020113040253480410937835c74fddf89e30fb50ed4466be8d0203009246040d00000004627466730000000132&amp;hy=SH&amp;storeid=2668682d70001b59ab4560d4b0000011300004f5053482d4448e0b6ff5c762&amp;bizid=1023" encrypturl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=aa096cef934517e96289b486b473a012&amp;filekey=30350201010421301f02020106040253480410aa096cef934517e96289b486b473a0120203011880040d00000004627466730000000132&amp;hy=SH&amp;storeid=2668682d7000a7881b4560d4b0000010600004f50534829c65b01e70f7baba&amp;bizid=1023" aeskey="223331f913db6b4d276685a92a16bdab" externurl="http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=fa399f5f6ad1d6e7156d39f37ead62b5&amp;filekey=30340201010420301e020201060402535a0410fa399f5f6ad1d6e7156d39f37ead62b5020216e0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=2668689f80005f941436500730000010600004f50535a00d6bae1e72e3a4fb&amp;bizid=1023" externmd5="138fe9a6fe379ef9baada4fc287eb4c0" width="240" height="240" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc="Cg4KB2RlZmF1bHQSAzY2Ng=="></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=👀
+[2026-09-07 20:00:47.220] 仅@播报诊断2: content=@👀 若干年后5090也就几百块而已 self=wxid_7695996953612 myNick=N myRemark= myDisplay=👀
+[2026-09-07 20:00:47.223] 群聊@播报: 群=稳过载卵🥚 🥚 🥚群 atMe=true
+[2026-09-07 20:08:58.584] 仅@播报诊断2: content=<msg><appmsg><title>请提前蓄水！9月8日榕城部分区域将降压供水</title><des>揭阳广电（微信号：jygbdst）</des><action>view</action><type>5</type><url>https://mp.weixin.qq.com/s?__biz=MzA4ODEwMDY3OA==&amp;mid=2651705029&amp;idx=1&amp;sn=14f50d46ea28028c19166824bd4d72c4&amp;chksm=8a9fdad83b215f1b7a7c9d39038de259cd96bb47bd77602ec1a590bc35f6889644350b9793fb&amp;mpshare=1&amp;scene=1&amp;srcid=0907ODXCsIsNsyNGzT8DAnwt&amp;sharer_shareinfo=3cf720fbfbb5590bd1202b20eb8e2cdc&amp;sharer_shareinfo_first=3cf720fbfbb5590bd1202b20eb8e2cdc#rd</url><appattach><cdnthumburl>305f020100044b30490201000204b02cfcde02032df7fb02049103a27502046a9e9fb2042434326162366533372d633731342d343931652d393432362d623031363431393635373363020405140803020100040d004c53db000000000000000000</cdnthumburl><cdnthumbmd5>8d9878b98f41b4841f6255832618bd3e</cdnthumbmd5><cdnthumbaeskey>87e60c5fe1debbcf0f320b4e98bba499</cdnthumbaeskey></appattach><androidsource>2</androidsource><sourceusername>gh_24f69528a8d4</sourceusername><sourcedisplayname>揭阳广电</sourcedisplayname><webviewshared><shareUrlOriginal>http://mp.weixin.qq.com/s?__biz=MzA4ODEwMDY3OA==&amp;mid=2651705029&amp;idx=1&amp;sn=14f50d46ea28028c19166824bd4d72c4&amp;chksm=8bd634ecbca1bdfa13763b4cf38bbaa6f5ddf5f128583b16cb729f021317910f2fedc5aa3ec4&amp;newsflash_single_card=1&amp;newsflash_feeds_style=1&amp;aggr_url=https%3A%2F%2Fbc.weixin.qq.com%2Fmp%2Frecommendtag%3Faction%3Dshow_news_feed%26msg_type%3D1%26tag_type%3D24%26tag%3D%25E5%25BF%25AB%25E8%25AE%25AF%26hotnewsfeed%3D1%26ext%3DHF9eO92OrnL48hNj16WorK54ijjxleeh2Z6JkttHyxZGC7joDhqVMbKFSXvOq9rCwHMMgUoo9A%26sn%3DLwIlJimRAnCxm-xyr3sYyNd5xyo%26cardid%3Dtlcolumn_hottopic_1003_2108385383_1788782726_subcolumnindex0%26sessionid%3D1788782726%23wechat_redirect&amp;exptype=aggrpage_newsflash_feeds&amp;req_id=1788782725192849&amp;scene=281&amp;subscene=90&amp;sessionid=1788782781&amp;flutter_pos=0&amp;clicktime=1788782783&amp;enterid=1788782783&amp;finder_biz_enter_id=5&amp;ranksessionid=1788782725&amp;jumppath=1001_1788782721291%2C1101_1788782723532%2C1001_1788782779718%2C50094_1788782781694&amp;jumppathdepth=4&amp;ascene=56&amp;fasttmpl_type=0&amp;fasttmpl_fullversion=8424144-zh_CN-zip&amp;fasttmpl_flag=0&amp;realreporttime=1788782783941#rd</shareUrlOriginal><shareUrlOpen>https://mp.weixin.qq.com/s?__biz=MzA4ODEwMDY3OA==&amp;mid=2651705029&amp;idx=1&amp;sn=14f50d46ea28028c19166824bd4d72c4&amp;chksm=8bd634ecbca1bdfa13763b4cf38bbaa6f5ddf5f128583b16cb729f021317910f2fedc5aa3ec4&amp;newsflash_single_card=1&amp;newsflash_feeds_style=1&amp;aggr_url=https%3A%2F%2Fbc.weixin.qq.com%2Fmp%2Frecommendtag%3Faction%3Dshow_news_feed%26msg_type%3D1%26tag_type%3D24%26tag%3D%25E5%25BF%25AB%25E8%25AE%25AF%26hotnewsfeed%3D1%26ext%3DHF9eO92OrnL48hNj16WorK54ijjxleeh2Z6JkttHyxZGC7joDhqVMbKFSXvOq9rCwHMMgUoo9A%26sn%3DLwIlJimRAnCxm-xyr3sYyNd5xyo%26cardid%3Dtlcolumn_hottopic_1003_2108385383_1788782726_subcolumnindex0%26sessionid%3D1788782726%23wechat_redirect&amp;exptype=aggrpage_newsflash_feeds&amp;req_id=1788782725192849&amp;scene=281&amp;subscene=90&amp;sessionid=1788782781&amp;flutter_pos=0&amp;clicktime=1788782783&amp;enterid=1788782783&amp;finder_biz_enter_id=5&amp;ranksessionid=1788782725&amp;jumppath=1001_1788782721291%2C1101_1788782723532%2C1001_1788782779718%2C50094_1788782781694&amp;jumppathdepth=4&amp;ascene=56&amp;fasttmpl_type=0&amp;fasttmpl_fullversion=8424144-zh_CN-zip&amp;fasttmpl_flag=0&amp;realreporttime=1788782783941&amp;devicetype=android-29&amp;version=28004d74&amp;nettype=WIFI&amp;abtest_cookie=AAACAA%3D%3D&amp;lang=zh_CN&amp;countrycode=CN&amp;exportkey=n_ChQIAhIQkfIpEhyxxb4NAmNhwlPtmxLiAQIE97dBBAEAAAAAAOgtMcRa5aYAAAAOpnltbLcz9gKNyK89dVj0v%2B1dqHqxj491F49eGzEzn8dvPfpP1WJ1fjMxZQWGEsj70Dozrw2ZacDthiQLGgxDBuB6yC01loMOF3NdcEif%2F6yKb%2B9bvhpU4F5fq8SB2%2F5U%2FPZw54TRAFzcNxCNxB11ie6FSFB2UBAdcyQoyYNXHTYIFFObxjWvNlsCmDOPPVbG8hH4MpCWY6%2FqworDGwVThDdsmE7REGkX1jg6yhysZBNlw8y1%2FmlHoO0BZrbuQML2XXzjgxULghpRpno%3D&amp;pass_ticket=lOa0e0qviu9vk4%2BOQhi1V%2F6ptY1kOD%2FBVIsv1cqzqm54quZ2NbvSfEqiPPHxcJ%2FI&amp;wx_header=3</shareUrlOpen><publisherId>msg_0</publisherId><publisherReqId>2076387623</publisherReqId></webviewshared><mmreadershare><itemshowtype>0</itemshowtype><showsourceinfo>0</showsourceinfo><isfindercontact>0</isfindercontact><duration>-1</duration></mmreadershare><finderLiveProductShare><isPriceBeginShow>false</isPriceBeginShow></finderLiveProductShare><gameshare><appbrandext><priority>-1</priority></appbrandext><duration>-1</duration></gameshare></appmsg><fromusername>wxid_ki27s7ruwqox21</fromusername><appinfo><version>1</version></appinfo></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:15:08.968] 仅@播报诊断2: content=@👀 第三次世界大战以后 self=wxid_7695996953612 myNick=N myRemark= myDisplay=👀
+[2026-09-07 20:15:08.975] 群聊@播报: 群=稳过载卵🥚 🥚 🥚群 atMe=true
+[2026-09-07 20:27:49.427] 仅@播报诊断2: content=zhengfen_8237: <msg><voicemsg endflag="1" voiceformat="4" voicelength="4320" length="7838" aeskey="6352490ed784974393007031aa44fb75" voiceurl="7f0c00070220207c06546dcd82b8378c81c26d43473e3223b1ecd6389016937665d5d221442a0301090f0001a03d0004010503000000069bc1b80107f8d0efe20908020000000009000a020b010c93dbfad4060d000e000f4e10a8e0d4f00211047b75ee56" clientmsgid="49fbb12ea311b253a7dd049d24e55fb221941007235@chatroom_759_1788784015" fromusername="zhengfen_8237" isPlayed="false"></voicemsg></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:30:42.703] 仅@播报诊断2: content=别错过！揭西棉湖非遗盛会来袭！
+2026揭西县千年非遗巡演美食娱乐文化节9月11日-9月15日，相约揭西县棉湖镇甲埔村！每晚7:30开始 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:30:42.736] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="d06ed860e1687cc1fbffdde529e6a404" encryver="1" cdnthumbaeskey="d06ed860e1687cc1fbffdde529e6a404" cdnthumburl="305f020100044b3049020100020407505add02032df7fb0204b803a27502046a9e45e0042439353462396262392d633036382d346266372d623634392d313436333635346632306162020425252801020100040d004c511f000000000000000000" cdnthumblength="5757" cdnthumbheight="120" cdnthumbwidth="76" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b3049020100020407505add02032df7fb0204b803a27502046a9e45e0042439353462396262392d633036382d346266372d623634392d313436333635346632306162020425252801020100040d004c511f000000000000000000" length="130810" cdnbigimgurl="305f020100044b3049020100020407505add02032df7fb0204b803a27502046a9e45e0042439353462396262392d633036382d346266372d623634392d313436333635346632306162020425252801020100040d004c511f000000000000000000" hdlength="539646" md5="823067724442e57fad89e461609a07e1" hevc_mid_size="130810">
+		<secHashInfoBase64>eyJwaGFzaCI6IjMwMzAzMDEwMDAwMDAwMDAiLCJwZHFIYXNoIjoiZmEyNjg1YWVhODRjY2ZhYWE4
+Y2JiMjczZmJiY2VjMGI4M2E2MTgzOTg3NGUzNDQ3NTA1OTUxMDQ2ZDU1NTdkYiJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:30:42.831] 仅@播报诊断2: content=wxid_fetdcjhkkryq22:0:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:39:15.149] 仅@播报诊断2: content=niuxinlong1976:0:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:39:23.041] 仅@播报诊断2: content=笑麻了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:39:29.724] 仅@播报诊断2: content=我老家出名了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:45:06.734] 仅@播报诊断2: content=老家小镇上报纸了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:45:06.833] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="e320699160d1a354dd0ffcf00cab64e0" encryver="1" cdnthumbaeskey="e320699160d1a354dd0ffcf00cab64e0" cdnthumburl="305f020100044b30490201000204793b35d102032f5c9d0204cca93db702046a9e9d72042462386564613762322d303661362d343565342d623238622d303634356133373436663437020405292a01020100040d004c57c1000000000000000000" cdnthumblength="2683" cdnthumbheight="392" cdnthumbwidth="177" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b30490201000204793b35d102032f5c9d0204cca93db702046a9e9d72042462386564613762322d303661362d343565342d623238622d303634356133373436663437020405292a01020100040d004c57c1000000000000000000" length="380846" cdnbigimgurl="305f020100044b30490201000204793b35d102032f5c9d0204cca93db702046a9e9d72042462386564613762322d303661362d343565342d623238622d303634356133373436663437020405292a01020100040d004c57c1000000000000000000" hdlength="3188533" md5="76dddcf64fe65eb512f0d51d08bb75a2" hevc_mid_size="199709" originsourcemd5="e6fd108c0f23b1adffcb62feb004d4ce">
+		<secHashInfoBase64>eyJwaGFzaCI6IjEwMDAxMDEwMDAxMDAwMTAiLCJwZHFIYXNoIjoiMTYzODAwMzk0Mjg5ZmViYzQ3
+NWM2NTZjM2U5ZTk3ZGNjOWFjZGVlZTg2ZjYwMTE0ZWNlZWZmOTgyMTAxMWIzMyJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.218] 仅@播报诊断2: content=卧槽京爷 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.316] 仅@播报诊断2: content=京爷你好 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.403] 仅@播报诊断2: content=京爷你好 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.469] 仅@播报诊断2: content=niuxinlong1976:0:0:8413fd30e4bd82d9bc25aa50c15d5f5c:niuxinlong1976*#*
+<msg><emoji fromusername = "niuxinlong1976" tousername = "43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="8413fd30e4bd82d9bc25aa50c15d5f5c" len = "1439954" productid="" androidmd5="8413fd30e4bd82d9bc25aa50c15d5f5c" androidlen="1439954" s60v3md5 = "8413fd30e4bd82d9bc25aa50c15d5f5c" s60v3len="1439954" s60v5md5 = "8413fd30e4bd82d9bc25aa50c15d5f5c" s60v5len="1439954" cdnurl = "http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=8413fd30e4bd82d9bc25aa50c15d5f5c&amp;filekey=30350201010421301f020201060402535a04108413fd30e4bd82d9bc25aa50c15d5f5c020315f8d2040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26317a280000518b6000000000000010600004f50535a02b27880967725e67&amp;bizid=1023" designerid = "" thumburl = "" encrypturl = "http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=d40fd12b7af4a1b3a30d2185d4cb91fc&amp;filekey=30350201010421301f020201060402535a0410d40fd12b7af4a1b3a30d2185d4cb91fc020315f8e0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26317a28100037b5c000000000000010600004f50535a20c27880963651cef&amp;bizid=1023" aeskey= "6b8a98add32bb95d6bd6d1dd576d67b1" externurl = "http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=c26a6803568c942f0dd074aa4f0a6e24&amp;filekey=30350201010421301f02020106040253480410c26a6803568c942f0dd074aa4f0a6e2402030797a0040d00000004627466730000000132&amp;hy=SH&amp;storeid=26317a281000c7d2f000000000000010600004f50534808367b40b64c33204&amp;bizid=1023" externmd5 = "c37d20b7ca599b2a34f1f67ae5c7a15d" width= "360" height= "352" tpurl= "" tpauthkey= "" attachedtext= "" attachedtextcolor= "" lensid= "" emojiattr= "" linkid= "" desc= "" ></emoji>  </msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.514] 仅@播报诊断2: content=6 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.568] 仅@播报诊断2: content=我老家上了京爷的报纸 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.623] 仅@播报诊断2: content=笑麻了已经 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:54:19.696] 仅@播报诊断2: content=懂得都得 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 20:57:26.502] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="5c43792058652078a26348bffd12cdbf" encryver="1" cdnthumbaeskey="5c43792058652078a26348bffd12cdbf" cdnthumburl="305f020100044b30490201000204ea55c2b302032dd27a02044e3bfb3a02046a9e5a13042461643366613762372d306435392d343866392d616137322d323530316162346366383334020405243801020100040d004c4d9a000000000000000000" cdnthumblength="5184" cdnthumbheight="169" cdnthumbwidth="180" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b30490201000204ea55c2b302032dd27a02044e3bfb3a02046a9e5a13042461643366613762372d306435392d343866392d616137322d323530316162346366383334020405243801020100040d004c4d9a000000000000000000" length="25984" cdnbigimgurl="305f020100044b30490201000204ea55c2b302032dd27a02044e3bfb3a02046a9e5a13042461643366613762372d306435392d343866392d616137322d323530316162346366383334020405243801020100040d004c4d9a000000000000000000" hdlength="25984" md5="410ac94d7f1e6a1b84120b8ccccfd932">
+		<secHashInfoBase64 />
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:52.675] 仅@播报诊断2: content=据说是记者收集到了证据，记者要价太高2，谈不拢，就爆出来了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:52.790] 仅@播报诊断2: content=笑麻了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:52.979] 仅@播报诊断2: content=wxid_ls24zxxk9ykg22:0:0:c04b9144eb9cad9e9aad0b175441724e:wxid_ls24zxxk9ykg22*#*
+<msg><emoji fromusername="wxid_ls24zxxk9ykg22" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="c04b9144eb9cad9e9aad0b175441724e" len="153479" productid="" androidmd5="c04b9144eb9cad9e9aad0b175441724e" androidlen="153479" s60v3md5="c04b9144eb9cad9e9aad0b175441724e" s60v3len="153479" s60v5md5="c04b9144eb9cad9e9aad0b175441724e" s60v5len="153479" cdnurl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=c04b9144eb9cad9e9aad0b175441724e&amp;filekey=30440201010430302e02016e0402535a042063303462393134346562396361643965396161643062313735343431373234650203025787040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a0d169d0006f36079e192bc0000006e01004fb2535a116f901156a7d2167&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=b7de297c92edf51b9a72a70bd661d6ca&amp;filekey=30440201010430302e02016e0402535a042062376465323937633932656466353162396137326137306264363631643663610203025790040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a0d169d0007d7ea79e192bc0000006e02004fb2535a116f901156a7d2177&amp;ef=2&amp;bizid=1022" aeskey="b2314ec1b829474693e12017e34fa305" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=36f5b401de2ec47ea92d33c420b1a95c&amp;filekey=3043020101042f302d02016e0402535a0420333666356234303164653265633437656139326433336334323062316139356302022d20040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a0d169d000927fc79e192bc0000006e03004fb3535a116f901156a7d2183&amp;ef=3&amp;bizid=1022" externmd5="afd1ccd3f26940a92dd7ff64a074b8e5" width="640" height="640" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="com.tencent.xin.lens.lens_default" emojiattr="" linkid="" desc="" activityid="Selfie*#* fa74460754bce26234d9ac8620b05055"></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.179] 仅@播报诊断2: content=<msg><appmsg><title>停电通知</title><des>明天开始，相互告知！</des><action>view</action><type>5</type><url>https://mp.weixin.qq.com/s?__biz=MzUxMjkxOTU1Ng==&amp;mid=2247502342&amp;idx=1&amp;sn=9103d22eaf3ae614c3fff247f7c997ec&amp;chksm=f833f368d57fa20a72f0f4232f021af726bb9dd280f11438825352f1f52db4802972aa8cf565&amp;mpshare=1&amp;scene=24&amp;srcid=0907azGWqLy7JQ1UFxOU6v8z&amp;sharer_shareinfo=a73c90d1440161033bccc6543d6a2456&amp;sharer_shareinfo_first=a73c90d1440161033bccc6543d6a2456#rd</url><sourceusername>gh_0a246e43688f</sourceusername><sourcedisplayname>爱上潮汕Live</sourcedisplayname><thumburl>https://mmbiz.qpic.cn/mmbiz_jpg/0XV6bjNeDj4kpPk7aDiaanAZqDyHy94XKAj8sTu0NgI8rAcS1MthO1vTMbr0oBX0MeJYqvInictibveA58BORWcBAL1BjC3zsMgHibELkicibe6P8/300?wx_fmt=jpeg&amp;wxfrom=4</thumburl><mmreadershare><itemshowtype>0</itemshowtype><showsourceinfo>0</showsourceinfo><isfindercontact>0</isfindercontact><duration>-1</duration></mmreadershare></appmsg><fromusername>wxid_fetdcjhkkryq22</fromusername><appinfo><version>1</version></appinfo></msg> self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.430] 仅@播报诊断2: content=@Ujhhgtg 为啥感觉ai在weagent会降智啊 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.564] 仅@播报诊断2: content=@Monk 毛主席:二流报纸 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.655] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="ee10b1ced442f6ae33ab9c16de6278ae" encryver="1" cdnthumbaeskey="ee10b1ced442f6ae33ab9c16de6278ae" cdnthumburl="305f020100044b304902010002048f89baf202032df66a02045284537002046a9ebe94042461323437383563392d306530322d343439302d613533622d393531613734366265653134020425250802020100040d004c4dfe000000000000000000" cdnthumblength="4956" cdnthumbheight="502" cdnthumbwidth="222" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b304902010002048f89baf202032df66a02045284537002046a9ebe94042461323437383563392d306530322d343439302d613533622d393531613734366265653134020425250802020100040d004c4dfe000000000000000000" length="756746" md5="1aa7127f69b8cf82d3376e92557d1414" hevc_mid_size="81941" originsourcemd5="e323689420dcbd7c29a7968ed4e11240">
+		<secHashInfoBase64>eyJwaGFzaCI6IjEwMDAxMDAwMDAwMDAwMTAiLCJwZHFIYXNoIjoiYzIwZjFhYjFkZmVjOTIwMWU2
+MGIxYzQ0M2JiOTU2NGMwZWFiNWFiZGZmZWNjMjFiOGNlNWYwMzkzMDU0ZmExYyJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.695] 仅@播报诊断2: content=家人们好消息，成了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.748] 仅@播报诊断2: content=niuxinlong1976:0:1:ba0f2c94bb3166c2a71d0bc83bc2b885:niuxinlong1976*#*
+<msg><emoji fromusername = "niuxinlong1976" tousername = "43788657788@chatroom" type="1" idbuffer="media*#*0_0" md5="ba0f2c94bb3166c2a71d0bc83bc2b885" len = "70932" productid="com.tencent.xin.emoticon.person.stiker_1705469296691709f750b258be" androidmd5="ba0f2c94bb3166c2a71d0bc83bc2b885" androidlen="70932" s60v3md5 = "ba0f2c94bb3166c2a71d0bc83bc2b885" s60v3len="70932" s60v5md5 = "ba0f2c94bb3166c2a71d0bc83bc2b885" s60v5len="70932" cdnurl = "http*#*//wxapp.tc.qq.com/275/20304/stodownload?m=ba0f2c94bb3166c2a71d0bc83bc2b885&amp;filekey=30350201010421301f02020113040253480410ba0f2c94bb3166c2a71d0bc83bc2b8850203011514040d00000004627466730000000132&amp;hy=SH&amp;storeid=265a8ef260004ef48b406d6a50000011300004f5053482558cbc1e6aa8393e&amp;bizid=1023" designerid = "" thumburl = "http*#*//wxapp.tc.qq.com/275/20304/stodownload?m=095bd1e8fbbba306545c24925333c1a9&amp;filekey=30340201010420301e02020113040253480410095bd1e8fbbba306545c24925333c1a9020250cd040d00000004627466730000000132&amp;hy=SH&amp;storeid=265a8ef2600031d98b406d6a50000011300004f50534806080bc1e68829901&amp;bizid=1023" encrypturl = "http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=e9b3add8def763361d8ae78c90957b7d&amp;filekey=30350201010421301f02020106040253480410e9b3add8def763361d8ae78c90957b7d0203011520040d00000004627466730000000132&amp;hy=SH&amp;storeid=265a8ef26000cdb0eb406d6a50000010600004f50534814661b01e68ffe200&amp;bizid=1023" aeskey= "58ad130fad07db57fdca94fdee2f089e" externurl = "http*#*//wxapp.tc.qq.com/262/20304/stodownload?m=f5843037efe6d51fe9ac79802e777aee&amp;filekey=30350201010421301f020201060402535a0410f5843037efe6d51fe9ac79802e777aee020300a100040d00000004627466730000000132&amp;hy=SZ&amp;storeid=265ab2c3d00028bd0c798f7bd0000010600004f50535a2c5b5181565f24c94&amp;bizid=1023" externmd5 = "9394fda2f8857c05ada20f76aa6f1fcc" width= "240" height= "240" tpurl= "" tpauthkey= "" attachedtext= "" attachedtextcolor= "" lensid= "" emojiattr= "" linkid= "" desc= "ChEKB2RlZmF1bHQSBuaBreWWnA==" ></emoji>  </msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.782] 仅@播报诊断2: content=这是干什么的 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:53.859] 仅@播报诊断2: content=wxid_3blo80hzgtfj22:0:0:07f206479f9aaae7b3ab3173e71fa9df:wxid_3blo80hzgtfj22*#*
+<msg><emoji fromusername="wxid_3blo80hzgtfj22" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="07f206479f9aaae7b3ab3173e71fa9df" len="438064" productid="" androidmd5="07f206479f9aaae7b3ab3173e71fa9df" androidlen="438064" s60v3md5="07f206479f9aaae7b3ab3173e71fa9df" s60v3len="438064" s60v5md5="07f206479f9aaae7b3ab3173e71fa9df" s60v5len="438064" cdnurl="http*#*//vweixinf.tc.qq.com/110/20401/stodownload?m=07f206479f9aaae7b3ab3173e71fa9df&amp;filekey=30440201010430302e02016e0402534804203037663230363437396639616161653762336162333137336537316661396466020306af30040d00000004627466730000000132&amp;hy=SH&amp;storeid=26964c7f50009f9aaadf893d70000006e01004fb15348176d717156d7ec8e9&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=01eb7b9d149768696eac7b834d998361&amp;filekey=30440201010430302e02016e0402534804203031656237623964313439373638363936656163376238333464393938333631020306af40040d00000004627466730000000132&amp;hy=SH&amp;storeid=26964c7f5000b119cadf893d70000006e02004fb25348176d717156d7ec8fc&amp;ef=2&amp;bizid=1022" aeskey="e8530bd0304c4c019d1aadc626be3e6b" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=525928c5740d5e94cb2116150dcde5a9&amp;filekey=30440201010430302e02016e04025348042035323539323863353734306435653934636232313136313530646364653561390203012320040d00000004627466730000000132&amp;hy=SH&amp;storeid=26964c7f5000c4e4cadf893d70000006e03004fb35348176d717156d7ec903&amp;ef=3&amp;bizid=1022" externmd5="a2e6db4d7872bbf9e5da9dd05eb815a7" width="400" height="400" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.009] 仅@播报诊断2: content=赚钱 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.046] QUOTE_DEBUG quotedMeCheck self=wxid_7695996953612 fromUsr=43788657788@chatroom refSection=<refermsg>
+			<type>1</type>
+			<svrid>3292926932239246754</svrid>
+			<fromusr>43788657788@chatroom</fromusr>
+			<chatusr>wxid_vj7pkhpx5rt022</chatusr>
+			<displayname>一张大饼</displayname>
+			<content>
+@Ujhhgtg 为啥感觉ai在weagent会降智啊</content>
+			<msgsource>&lt;msgsource&gt;
+	&lt;atuserlist&gt;&lt;![CDATA[wxid_dr2y2lnz8pse12]]&gt;&lt;/atuserlist&gt;
+	&lt;pua&gt;1&lt;/pua&gt;
+	&lt;eggIncluded&gt;1&lt;/eggIncluded&gt;
+	&lt;silence&gt;1&lt;/silence&gt;
+	&lt;membercount&gt;194&lt;/membercount&gt;
+	&lt;signature&gt;N0_V1_uGsHnkGO|v1_wpILYTY5&lt;/signature&gt;
+	&lt;tmp_node&gt;
+		&lt;publisher-id&gt;&lt;/publisher-id&gt;
+	&lt;/tmp_node&gt;
+&lt;/msgsource&gt;
+</msgsource>
+			<createtime>1788787968</createtime>
+		</refermsg>
+[2026-09-07 21:57:54.108] 仅@播报诊断2: content=我之后得重新设计一下架构 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.168] 仅@播报诊断2: content=之前 claude 写的太勾石了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.229] 仅@播报诊断2: content=V4和glm都一样的，在里面智商好低 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.317] 仅@播报诊断2: content=还拥有微信环境的情况下 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.374] 仅@播报诊断2: content=你是不是局域网TCP实现的通信链路 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.409] 仅@播报诊断2: content=回环 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.440] 仅@播报诊断2: content=不用局域网 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.477] 仅@播报诊断2: content=啊这这 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.506] QUOTE_DEBUG quotedMeCheck self=wxid_7695996953612 fromUsr=43788657788@chatroom refSection=<refermsg>
+			<type>1</type>
+			<svrid>4102091892227037471</svrid>
+			<fromusr>43788657788@chatroom</fromusr>
+			<chatusr>wxid_dr2y2lnz8pse12</chatusr>
+			<displayname>Ujhhgtg</displayname>
+			<content>
+之前 claude 写的太勾石了</content>
+			<msgsource>&lt;msgsource&gt;
+	&lt;pua&gt;1&lt;/pua&gt;
+	&lt;eggIncluded&gt;1&lt;/eggIncluded&gt;
+	&lt;silence&gt;1&lt;/silence&gt;
+	&lt;membercount&gt;194&lt;/membercount&gt;
+	&lt;signature&gt;N0_V1_nMebYIVq|v1_I263EDex&lt;/signature&gt;
+	&lt;tmp_node&gt;
+		&lt;publisher-id&gt;&lt;/publisher-id&gt;
+	&lt;/tmp_node&gt;
+&lt;/msgsource&gt;
+</msgsource>
+			<createtime>1788788812</createtime>
+		</refermsg>
+[2026-09-07 21:57:54.529] 仅@播报诊断2: content=具体怎么搞的，你让AI总结一下 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 21:57:54.549] 仅@播报诊断2: content=wxid_ls24zxxk9ykg22:0:0:a0a3841748a26bb8c2e6f5507636e111:wxid_ls24zxxk9ykg22*#*
+<msg><emoji fromusername="wxid_ls24zxxk9ykg22" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="a0a3841748a26bb8c2e6f5507636e111" len="547408" productid="" androidmd5="a0a3841748a26bb8c2e6f5507636e111" androidlen="547408" s60v3md5="a0a3841748a26bb8c2e6f5507636e111" s60v3len="547408" s60v5md5="a0a3841748a26bb8c2e6f5507636e111" s60v5len="547408" cdnurl="http*#*//vweixinf.tc.qq.com/110/20401/stodownload?m=a0a3841748a26bb8c2e6f5507636e111&amp;filekey=30440201010430302e02016e0402535a042061306133383431373438613236626238633265366635353037363336653131310203085a50040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303061363331353831306233333635663837393536303930303030303036653031303034666231&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=418cddcdd1086a47ab35191df3dab44d&amp;filekey=30440201010430302e02016e0402535a042034313863646463646431303836613437616233353139316466336461623434640203085a60040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303063303535363831306233333635663837393536303930303030303036653032303034666232&amp;ef=2&amp;bizid=1022" aeskey="7edd2fe4afcb4831a729a86fb92c63b9" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=ec4178e762e3a21278dd2727e7137c4a&amp;filekey=30440201010430302e02016e0402535a04206563343137386537363265336132313237386464323732376537313337633461020300b540040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303065373265353831306233333635663837393536303930303030303036653033303034666233&amp;ef=3&amp;bizid=1022" externmd5="620f3cc0acab63247bf368cf73f7714f" width="640" height="613" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:01:28.326] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="682adb88e760aeb6ab82f5c6247067e0" encryver="1" cdnthumbaeskey="682adb88e760aeb6ab82f5c6247067e0" cdnthumburl="305f020100044b304902010002048f89baf202032df66a02040e84537002046a9ec30c042462616335366366322d313630632d343939382d383466392d366464636133313434343130020425250802020100040d004c57c2000000000000000000" cdnthumblength="4693" cdnthumbheight="502" cdnthumbwidth="222" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b304902010002048f89baf202032df66a02040e84537002046a9ec30c042462616335366366322d313630632d343939382d383466392d366464636133313434343130020425250802020100040d004c57c2000000000000000000" length="1111566" md5="e52903be89a2b7e32a595b9621d5e245" hevc_mid_size="149147" originsourcemd5="c8e21d0a7472106c6fde09d119dc5f31">
+		<secHashInfoBase64>eyJwaGFzaCI6IjEwMTAxMDEwMTAxMDAwMDAiLCJwZHFIYXNoIjoiYjViNmY0YjQ3Nzk0YTUyZWVm
+NDFmZDQxZTk0YTBiNGIyYjQ5MGI0YWViNGI0MTRiNjUwNTk1ODc3NTk1NDRiNiJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:01:28.416] 仅@播报诊断2: content=好高级，写的啥 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:01:28.461] 仅@播报诊断2: content=还停留在抽象层面 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:01:28.498] 仅@播报诊断2: content=等我做成了再说吧[捂脸] self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:01:28.522] 仅@播报诊断2: content=不懂代码真要命 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:13:58.008] QUOTE_DEBUG quotedMeCheck self=wxid_7695996953612 fromUsr=43788657788@chatroom refSection=<refermsg>
+			<type>49</type>
+			<svrid>1657294626749662964</svrid>
+			<fromusr>43788657788@chatroom</fromusr>
+			<chatusr>wxid_xcr5dkienlvm22</chatusr>
+			<displayname>墨辞</displayname>
+			<content>&lt;?xml version="1.0"?&gt;
+&lt;msg&gt;
+	&lt;appmsg&gt;
+		&lt;title&gt;以后用gpt6ultra写吗&lt;/title&gt;
+		&lt;action&gt;view&lt;/action&gt;
+		&lt;type&gt;57&lt;/type&gt;
+		&lt;finderLiveProductShare&gt;
+			&lt;isPriceBeginShow&gt;false&lt;/isPriceBeginShow&gt;
+		&lt;/finderLiveProductShare&gt;
+		&lt;gameshare&gt;
+			&lt;appbrandext&gt;
+				&lt;priority&gt;-1&lt;/priority&gt;
+			&lt;/appbrandext&gt;
+			&lt;duration&gt;-1&lt;/duration&gt;
+		&lt;/gameshare&gt;
+		&lt;refermsg&gt;&lt;/refermsg&gt;
+		&lt;appattach /&gt;
+	&lt;/appmsg&gt;
+	&lt;fromusername&gt;wxid_xcr5dkienlvm22&lt;/fromusername&gt;
+	&lt;scene&gt;0&lt;/scene&gt;
+	&lt;appinfo&gt;
+		&lt;version&gt;1&lt;/version&gt;
+		&lt;appname&gt;&lt;/appname&gt;
+	&lt;/appinfo&gt;
+	&lt;commenturl&gt;&lt;/commenturl&gt;
+&lt;/msg&gt;
+</content>
+			<msgsource>&lt;msgsource&gt;
+	&lt;alnode&gt;
+		&lt;fr&gt;4&lt;/fr&gt;
+	&lt;/alnode&gt;
+	&lt;sec_msg_node&gt;
+		&lt;uuid&gt;399c2c47a75360ba0047aaa37541c294_&lt;/uuid&gt;
+		&lt;risk-file-flag /&gt;
+		&lt;risk-file-md5-list /&gt;
+	&lt;/sec_msg_node&gt;
+	&lt;silence&gt;1&lt;/silence&gt;
+	&lt;membercount&gt;194&lt;/membercount&gt;
+	&lt;signature&gt;N0_V1_d5FbdkWh|v1_dFv6S3OD&lt;/signature&gt;
+	&lt;tmp_node&gt;
+		&lt;publisher-id&gt;&lt;/publisher-id&gt;
+	&lt;/tmp_node&gt;
+&lt;/msgsource&gt;
+</msgsource>
+			<createtime>1788789007</createtime>
+		</refermsg>
+[2026-09-07 22:13:58.051] 仅@播报诊断2: content=ultra 还是算了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:13:58.125] 仅@播报诊断2: content=prolite 不够用 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:13:58.191] 仅@播报诊断2: content=而且我下周订阅就过期了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:13:58.252] 仅@播报诊断2: content=依,今天非总怎么说话了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:13:58.290] 仅@播报诊断2: content=上学一般都不说的 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:20:54.198] 仅@播报诊断2: content=一看非总看不过我们在群里瞎逼逼，要出来批评指正 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:20:54.260] 仅@播报诊断2: content=wxid_ls24zxxk9ykg22:0:0:a0a3841748a26bb8c2e6f5507636e111:wxid_ls24zxxk9ykg22*#*
+<msg><emoji fromusername="wxid_ls24zxxk9ykg22" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="a0a3841748a26bb8c2e6f5507636e111" len="547408" productid="" androidmd5="a0a3841748a26bb8c2e6f5507636e111" androidlen="547408" s60v3md5="a0a3841748a26bb8c2e6f5507636e111" s60v3len="547408" s60v5md5="a0a3841748a26bb8c2e6f5507636e111" s60v5len="547408" cdnurl="http*#*//vweixinf.tc.qq.com/110/20401/stodownload?m=a0a3841748a26bb8c2e6f5507636e111&amp;filekey=30440201010430302e02016e0402535a042061306133383431373438613236626238633265366635353037363336653131310203085a50040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303061363331353831306233333635663837393536303930303030303036653031303034666231&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=418cddcdd1086a47ab35191df3dab44d&amp;filekey=30440201010430302e02016e0402535a042034313863646463646431303836613437616233353139316466336461623434640203085a60040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303063303535363831306233333635663837393536303930303030303036653032303034666232&amp;ef=2&amp;bizid=1022" aeskey="7edd2fe4afcb4831a729a86fb92c63b9" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=ec4178e762e3a21278dd2727e7137c4a&amp;filekey=30440201010430302e02016e0402535a04206563343137386537363265336132313237386464323732376537313337633461020300b540040d00000004627466730000000131&amp;hy=SZ&amp;storeid=323032313035303931303235313930303065373265353831306233333635663837393536303930303030303036653033303034666233&amp;ef=3&amp;bizid=1022" externmd5="620f3cc0acab63247bf368cf73f7714f" width="640" height="613" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:21:48.191] 仅@播报诊断2: content=wxid_3blo80hzgtfj22:0:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:21:48.234] 仅@播报诊断2: content=一看非总看不过我们在群里瞎逼逼，要出来批评指正 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:21:48.263] 消息监听回调失败: bsh.EvalError: Sourced file: eval string internal Error: cannot cast string "" to number
+	at onHandleMsg(__hchat_msg_info) (eval string:1)
+[2026-09-07 22:42:33.159] 仅@播报诊断2: content=niuxinlong1976:0:0:b9050d3cc2b0a26056561f10a12535ef:niuxinlong1976*#*
+<msg><emoji fromusername = "niuxinlong1976" tousername = "43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="b9050d3cc2b0a26056561f10a12535ef" len = "6603652" productid="" androidmd5="b9050d3cc2b0a26056561f10a12535ef" androidlen="6603652" s60v3md5 = "b9050d3cc2b0a26056561f10a12535ef" s60v3len="6603652" s60v5md5 = "b9050d3cc2b0a26056561f10a12535ef" s60v5len="6603652" cdnurl = "http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=b9050d3cc2b0a26056561f10a12535ef&amp;filekey=30440201010430302e02016e0402534804206239303530643363633262306132363035363536316631306131323533356566020364c384040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a219b290003ff10cdae00630000006e01004fb253480c565b01e6c03416a&amp;ef=1&amp;bizid=1022" designerid = "" thumburl = "" encrypturl = "http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=0d741039b62d46d05f65fbd360934b70&amp;filekey=30440201010430302e02016e0402534804203064373431303339623632643436643035663635666264333630393334623730020364c390040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a219b29000a50f8cdae00630000006e02004fb253480c565b01e6c0341aa&amp;ef=2&amp;bizid=1022" aeskey= "d06cf12ea3a444bea2cff68e6fc480f3" externurl = "http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=5f72f50ee5e0d86f0c224a261ebba54b&amp;filekey=30440201010430302e02016e0402534804203566373266353065653565306438366630633232346132363165626261353462020302de60040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a219b2a0001705acdae00630000006e03004fb353480c565b01e6c0341e6&amp;ef=3&amp;bizid=1022" externmd5 = "4d8c6f04ad54b6ef961cfdfcc032aa02" width= "300" height= "283" tpurl= "" tpauthkey= "" attachedtext= "" attachedtextcolor= "" lensid= "" emojiattr= "" linkid= "" desc= "" ></emoji>  </msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:42:33.485] 仅@播报诊断2: content=有人知道hc的自动回复咋搞不 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:42:33.789] 仅@播报诊断2: content=wxid_fdhrwnsvi6no21:0:0:a0d06d4613c4b7365d126e5c03836c7c:wxid_fdhrwnsvi6no21*#*
+<msg><emoji fromusername="wxid_fdhrwnsvi6no21" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="a0d06d4613c4b7365d126e5c03836c7c" len="4202307" productid="" androidmd5="a0d06d4613c4b7365d126e5c03836c7c" androidlen="4202307" s60v3md5="a0d06d4613c4b7365d126e5c03836c7c" s60v3len="4202307" s60v5md5="a0d06d4613c4b7365d126e5c03836c7c" s60v5len="4202307" cdnurl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=a0d06d4613c4b7365d126e5c03836c7c&amp;filekey=30440201010430302e02016e04025348042061306430366434363133633462373336356431323665356330333833366337630203401f43040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a8d8c1c00095a525d5857850000006e01004fb2534813761b01e6ba0e1e8&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=fa4b08c4b807a9e4617d4214a3b8c2a8&amp;filekey=30440201010430302e02016e04025348042066613462303863346238303761396534363137643432313461336238633261380203401f50040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a8d8c1c000d6cbd5d5857850000006e02004fb2534813761b01e6ba0e241&amp;ef=2&amp;bizid=1022" aeskey="1f6b513ddf444de9bcf28cee65acf1f7" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=1b132deae358506321b3fcfd12d9561a&amp;filekey=30440201010430302e02016e04025348042031623133326465616533353835303633323162336663666431326439353631610203060060040d00000004627466730000000132&amp;hy=SH&amp;storeid=26a8d8c1d000268205d5857850000006e03004fb3534813761b01e6ba0e293&amp;ef=3&amp;bizid=1022" externmd5="45aa5192284421b7f684f66ee1978af9" width="320" height="320" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc="" activityid="Selfie*#* cc432583afd18e21ebde40d4f7c29576"></emoji><gameext type="0" content="0"></gameext></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:42:33.858] 仅@播报诊断2: content=新版本失效了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:42:33.898] 仅@播报诊断2: content=怪不得没用 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 22:42:33.935] 仅@播报诊断2: content=那不试了 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:31.724] 仅@播报诊断2: content=你真的是啥都搞啊 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:31.844] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="f7dd4d85ce1d1f40f7bbaaf79e02eaad" encryver="1" cdnthumbaeskey="f7dd4d85ce1d1f40f7bbaaf79e02eaad" cdnthumburl="305f020100044b3049020100020416e81deb02032df7fb02042403a27502046a9ed111042434393439643439652d386261662d346564632d393635632d373236396166316234316631020425250802020100040d004c4d9b000000000000000000" cdnthumblength="5049" cdnthumbheight="480" cdnthumbwidth="214" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b3049020100020416e81deb02032df7fb02042403a27502046a9ed111042434393439643439652d386261662d346564632d393635632d373236396166316234316631020425250802020100040d004c4d9b000000000000000000" length="902317" md5="207f2094c36b9ec76ba7f88bdb4a7e13" hevc_mid_size="108807" originsourcemd5="47733052098c2ef920ed6bf65af18ad2">
+		<secHashInfoBase64>eyJwaGFzaCI6IjUxNTA1NTUwNTA1MDEwMDAiLCJwZHFIYXNoIjoiYWUxNmJkNjgzYjAzOWM4NTYx
+NmQ4YzBmZDc2MmE0OTcwNDM1YmExY2ZiNDY1ZDY4N2RmODQ3OTI4YTk3NmE3NCJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=👀
+[2026-09-07 23:29:32.036] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="11cb9ff5cb7f0a316ee97d3b4b8638f5" encryver="1" cdnthumbaeskey="11cb9ff5cb7f0a316ee97d3b4b8638f5" cdnthumburl="305f020100044b3049020100020483f197d702032dcdc9020447b9d37402046a9ed17c042461333431396636352d613665322d343837612d393162372d623037386330363134626666020405252a01020100040d004c50b9000000000000000000" cdnthumblength="3360" cdnthumbheight="432" cdnthumbwidth="193" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b3049020100020483f197d702032dcdc9020447b9d37402046a9ed17c042461333431396636352d613665322d343837612d393162372d623037386330363134626666020405252a01020100040d004c50b9000000000000000000" length="504264" cdnbigimgurl="305f020100044b3049020100020483f197d702032dcdc9020447b9d37402046a9ed17c042461333431396636352d613665322d343837612d393162372d623037386330363134626666020405252a01020100040d004c50b9000000000000000000" hdlength="471346" md5="235460bfb221d3f44d54626042d0ea34" hevc_mid_size="46725" originsourcemd5="235460bfb221d3f44d54626042d0ea34">
+		<secHashInfoBase64>eyJwaGFzaCI6IjU1MDA1NTAwMTAwMDEwMDAiLCJwZHFIYXNoIjoiZmFlZTgwYWVlYWZlYzVkZjAx
+MTEzYjkxM2IxODE1YTVmZmVlYzBlNjg0MDUyYTkzMDExMTE1MTFmZmVhZWFjNiJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.071] 仅@播报诊断2: content=自动回复是不是这个 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.109] 仅@播报诊断2: content=[捂脸][捂脸] self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.152] 仅@播报诊断2: content=对的 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.196] 仅@播报诊断2: content=我打算合到模块里面 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.245] 仅@播报诊断2: content=wxid_8c5q0h3w43pj22:0:0:9e178f26da593e426648fcb35f4fa79b:wxid_8c5q0h3w43pj22*#*
+<msg><emoji fromusername="wxid_8c5q0h3w43pj22" tousername="43788657788@chatroom" type="2" idbuffer="media*#*0_0" md5="9e178f26da593e426648fcb35f4fa79b" len="21443" productid="" androidmd5="9e178f26da593e426648fcb35f4fa79b" androidlen="21443" s60v3md5="9e178f26da593e426648fcb35f4fa79b" s60v3len="21443" s60v5md5="9e178f26da593e426648fcb35f4fa79b" s60v5len="21443" cdnurl="http*#*//vweixinf.tc.qq.com/110/20401/stodownload?m=9e178f26da593e426648fcb35f4fa79b&amp;filekey=3043020101042f302d02016e0402535a04203965313738663236646135393365343236363438666362333566346661373962020253c3040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a8fccb6000a57547633f0c90000006e01004fb1535a2cdcd15156c7cb7cc&amp;ef=1&amp;bizid=1022" designerid="" thumburl="" encrypturl="http*#*//vweixinf.tc.qq.com/110/20402/stodownload?m=821c807e347da9f338dd6e6610b5d937&amp;filekey=3043020101042f302d02016e0402535a04203832316338303765333437646139663333386464366536363130623564393337020253d0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a8fccb6000b1d017633f0c90000006e02004fb2535a2cdcd15156c7cb7e3&amp;ef=2&amp;bizid=1022" aeskey="e782c6d416aa4bbe998c85e4836ca814" externurl="http*#*//vweixinf.tc.qq.com/110/20403/stodownload?m=139e157245d48600364f320055a9e27d&amp;filekey=3043020101042f302d02016e0402535a04203133396531353732343564343836303033363466333230303535613965323764020224b0040d00000004627466730000000132&amp;hy=SZ&amp;storeid=26a8fccb6000bbb137633f0c90000006e03004fb3535a2cdcd15156c7cb7f1&amp;ef=3&amp;bizid=1022" externmd5="9d336fcc9b0277f5bbe33cbb1f2ea20d" width="512" height="481" tpurl="" tpauthkey="" attachedtext="" attachedtextcolor="" lensid="" emojiattr="" linkid="" desc=""></emoji></msg>:0
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.300] 仅@播报诊断2: content=老大，这个菜单能设置成自己触发吗，别人一发菜单我就跳弹窗 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.366] 仅@播报诊断2: content=能 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.446] QUOTE_DEBUG quotedMeCheck self=wxid_7695996953612 fromUsr=30240280143@chatroom refSection=<refermsg>
+			<type>1</type>
+			<svrid>2679374563954069585</svrid>
+			<fromusr>30240280143@chatroom</fromusr>
+			<chatusr>wxid_84c0gfjfi3fa12</chatusr>
+			<displayname>سےھرΙ🚜نوچسى🕺</displayname>
+			<content>
+能</content>
+			<msgsource>&lt;msgsource&gt;
+	&lt;pua&gt;1&lt;/pua&gt;
+	&lt;sec_msg_node&gt;
+		&lt;sfn&gt;1&lt;/sfn&gt;
+		&lt;show-h5&gt;&lt;![CDATA[]]&gt;&lt;/show-h5&gt;
+		&lt;clip-len&gt;0&lt;/clip-len&gt;
+		&lt;share-tip-url&gt;&lt;![CDATA[]]&gt;&lt;/share-tip-url&gt;
+		&lt;sec-ctrl-flag&gt;&lt;![CDATA[]]&gt;&lt;/sec-ctrl-flag&gt;
+		&lt;fold-reduce&gt;0&lt;/fold-reduce&gt;
+		&lt;media-to-emoji&gt;0&lt;/media-to-emoji&gt;
+		&lt;block-range&gt;0&lt;/block-range&gt;
+		&lt;bubble-type&gt;2&lt;/bubble-type&gt;
+		&lt;preview-type&gt;0&lt;/preview-type&gt;
+		&lt;url-click-type&gt;0&lt;/url-click-type&gt;
+	&lt;/sec_msg_node&gt;
+	&lt;eggIncluded&gt;1&lt;/eggIncluded&gt;
+	&lt;silence&gt;1&lt;/silence&gt;
+	&lt;membercount&gt;35&lt;/membercount&gt;
+	&lt;signature&gt;N0_V1_j422ET53|v1_Qn7d/AEa&lt;/signature&gt;
+	&lt;tmp_node&gt;
+		&lt;publisher-id&gt;&lt;/publisher-id&gt;
+	&lt;/tmp_node&gt;
+&lt;/msgsource&gt;
+</msgsource>
+			<createtime>1788794409</createtime>
+		</refermsg>
+[2026-09-07 23:29:32.510] 仅@播报诊断2: content=<?xml version="1.0"?>
+<msg>
+	<img aeskey="d2b47e24dd9062865af087cffe666988" encryver="1" cdnthumbaeskey="d2b47e24dd9062865af087cffe666988" cdnthumburl="305f020100044b30490201000204514ae6db02032dcc390204e98a773102046a9ed690042438383664623963382d346564612d343464632d616533302d616231386564353639376333020405290a02020100040d004c57c1000000000000000000" cdnthumblength="8004" cdnthumbheight="384" cdnthumbwidth="436" cdnmidheight="0" cdnmidwidth="0" cdnhdheight="0" cdnhdwidth="0" cdnmidimgurl="305f020100044b30490201000204514ae6db02032dcc390204e98a773102046a9ed690042438383664623963382d346564612d343464632d616533302d616231386564353639376333020405290a02020100040d004c57c1000000000000000000" length="20128" md5="4552bd57e984ab838d339347ecf19a03" hevc_mid_size="12099" originsourcemd5="885c0c6ac76b9733dba915abf6eca3d2">
+		<secHashInfoBase64>eyJwaGFzaCI6IjMwMDAwMDAwMDAwMDAwMDAiLCJwZHFIYXNoIjoiZjBjMGZmZmY2MTk5ZTVjZTgy
+MjY5YTAzM2ZlMTA5ODYxMzEzODAwZTBmZmQwMDM2ZjgwMzNmZWM3ZjA5ZjNmOCJ9
+</secHashInfoBase64>
+		<live>
+			<duration>0</duration>
+			<size>0</size>
+			<md5 />
+			<fileid />
+			<hdsize>0</hdsize>
+			<hdmd5 />
+			<hdfileid />
+			<stillimagetimems>0</stillimagetimems>
+		</live>
+	</img>
+	<platform_signature />
+	<imgdatahash />
+	<ImgSourceInfo>
+		<ImgSourceUrl />
+		<BizType>0</BizType>
+	</ImgSourceInfo>
+</msg>
+ self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
+[2026-09-07 23:29:32.586] 仅@播报诊断2: content=mt管理器里面自己改就行 self=wxid_7695996953612 myNick=N myRemark= myDisplay=N
