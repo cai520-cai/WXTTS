@@ -1,0 +1,79 @@
+.class public final Lw5/p$q;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+# interfaces
+.implements Le7/m;
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingMethod;
+    value = Lw5/p;->n6([Z)Le7/m;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x19
+    name = null
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Ljava/lang/Object;",
+        "Le7/m<",
+        "Ljava/lang/Boolean;",
+        ">;"
+    }
+.end annotation
+
+.annotation system Ldalvik/annotation/SourceDebugExtension;
+    value = "SMAP\nSequences.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Sequences.kt\nkotlin/sequences/SequencesKt__SequencesKt$Sequence$1\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,680:1\n24380#2:681\n*E\n"
+.end annotation
+
+.annotation build Lt6/r1;
+    value = {
+        "SMAP\nSequences.kt\nKotlin\n*S Kotlin\n*F\n+ 1 Sequences.kt\nkotlin/sequences/SequencesKt__SequencesKt$Sequence$1\n+ 2 _Arrays.kt\nkotlin/collections/ArraysKt___ArraysKt\n*L\n1#1,680:1\n24380#2:681\n*E\n"
+    }
+.end annotation
+
+
+# instance fields
+.field public final synthetic a:[Z
+
+
+# direct methods
+.method public constructor <init>([Z)V
+    .locals 0
+
+    .line 1
+    iput-object p1, p0, Lw5/p$q;->a:[Z
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public iterator()Ljava/util/Iterator;
+    .locals 1
+    .annotation system Ldalvik/annotation/Signature;
+        value = {
+            "()",
+            "Ljava/util/Iterator<",
+            "Ljava/lang/Boolean;",
+            ">;"
+        }
+    .end annotation
+
+    .annotation build Lr7/d;
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lw5/p$q;->a:[Z
+
+    invoke-static {v0}, Lt6/j;->a([Z)Lw5/r;
+
+    move-result-object v0
+
+    return-object v0
+.end method

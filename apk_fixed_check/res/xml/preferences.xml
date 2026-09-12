@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="总开关">
+        <SwitchPreference android:title="启用自动播报" android:key="enabled" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="播报模式">
+        <SwitchPreference android:title="自动播报文字消息" android:key="text_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报昵称备注" android:key="say_sender" android:defaultValue="true" />
+        <SwitchPreference android:title="群聊带群名播报" android:key="group_name_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="群聊仅@时播报" android:key="at_only_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="连续播报时，前缀播报30秒刷新" android:key="continuous_enabled" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="消息类型">
+        <SwitchPreference android:title="播报图片消息" android:key="image_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报视频消息" android:key="video_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报语音消息" android:key="voice_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报表情消息" android:key="emoji_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报位置消息" android:key="location_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报文件消息" android:key="file_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报链接消息" android:key="link_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报口令消息" android:key="kouling_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报小程序消息" android:key="miniapp_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报名片消息" android:key="card_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报聊天记录消息" android:key="record_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报红包消息" android:key="redpacket_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报转账消息" android:key="transfer_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报拍一拍" android:key="pat_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报视频号消息" android:key="finder_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报歌曲消息" android:key="music_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报撤回消息" android:key="recall_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报群成员变动" android:key="member_change_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报引用消息" android:key="quote_enabled" android:defaultValue="true" />
+        <SwitchPreference android:title="播报标点符号问号" android:key="question_mark_enabled" android:defaultValue="true" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="其他">
+        <EditTextPreference android:title="语速 (0.5-2.0)" android:key="voice_rate" android:defaultValue="1.0" />
+        <EditTextPreference android:title="免打扰开始时间" android:key="quiet_start" android:defaultValue="23:00" />
+        <EditTextPreference android:title="免打扰结束时间" android:key="quiet_end" android:defaultValue="07:00" />
+        <EditTextPreference android:title="文本播报最大长度" android:key="max_text_len" android:defaultValue="80" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="白名单">
+        <SwitchPreference android:title="启用白名单" android:key="whitelist_enabled" android:defaultValue="false" />
+        <EditTextPreference android:title="白名单 (换行分隔昵称/wxid)" android:key="whitelist" android:defaultValue="" />
+    </PreferenceCategory>
+</PreferenceScreen>

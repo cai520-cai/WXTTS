@@ -1,0 +1,14 @@
+.class public final Lu5/l0;
+.super Lu5/q0;
+.source "SourceFile"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Lu5/q0;-><init>()V
+
+    return-void
+.end method

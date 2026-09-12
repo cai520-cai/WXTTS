@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:fillViewport="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <LinearLayout android:orientation="vertical" android:padding="20.0dip" android:layout_width="fill_parent" android:layout_height="wrap_content">
+        <TextView android:textSize="20.0sp" android:textStyle="bold" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="AI 聊天助手控制面板" />
+        <CheckBox android:id="@id/cb_master" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="总开关（启用所有 AI 功能）" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="── 功能开关 ──" />
+        <CheckBox android:id="@id/cb_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="聊天总结" />
+        <CheckBox android:id="@id/cb_reply" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="来消息推荐回复" />
+        <CheckBox android:id="@id/cb_memory" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="多轮上下文记忆" />
+        <CheckBox android:id="@id/cb_polish" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="文本润色" />
+        <CheckBox android:id="@id/cb_emotion" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="情绪分析" />
+        <CheckBox android:id="@id/cb_keyword" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="关键词/待办提取" />
+        <CheckBox android:id="@id/cb_custom_prompt" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="自定义 Prompt 模板" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="── AI 后端 ──" />
+        <RadioButton android:id="@id/rb_openai" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="OpenAI" />
+        <EditText android:id="@id/et_openai_base" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="OpenAI Base URL" />
+        <EditText android:id="@id/et_openai_key" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="OpenAI API Key" android:inputType="textPassword" />
+        <EditText android:id="@id/et_openai_model" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="OpenAI 模型名" />
+        <RadioButton android:id="@id/rb_deepseek" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="8.0dip" android:text="DeepSeek" />
+        <EditText android:id="@id/et_deepseek_base" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="DeepSeek Base URL" />
+        <EditText android:id="@id/et_deepseek_key" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="DeepSeek API Key" android:inputType="textPassword" />
+        <EditText android:id="@id/et_deepseek_model" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="DeepSeek 模型名" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="── AI 参数 ──" />
+        <TextView android:id="@id/tv_summary_count" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <SeekBar android:id="@id/sb_summary_count" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="500" />
+        <TextView android:id="@id/tv_memory_count" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <SeekBar android:id="@id/sb_memory_count" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="100" />
+        <TextView android:id="@id/tv_memory_duration" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <SeekBar android:id="@id/sb_memory_duration" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="120" />
+        <TextView android:id="@id/tv_reply_count" android:layout_width="fill_parent" android:layout_height="wrap_content" />
+        <SeekBar android:id="@id/sb_reply_count" android:layout_width="fill_parent" android:layout_height="wrap_content" android:max="6" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="── 回复模式 ──" />
+        <RadioButton android:id="@id/rb_fill" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="仅填入输入框" />
+        <RadioButton android:id="@id/rb_send" android:layout_width="fill_parent" android:layout_height="wrap_content" android:text="直接发送" />
+        <TextView android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="12.0dip" android:text="── 自定义 Prompt 模板 ──" />
+        <EditText android:gravity="top" android:id="@id/et_prompt_summary" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="总结 Prompt" android:minLines="2" />
+        <EditText android:gravity="top" android:id="@id/et_prompt_reply" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="推荐回复 Prompt（%d 会被替换为条数）" android:minLines="2" />
+        <EditText android:gravity="top" android:id="@id/et_prompt_polish" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="润色 Prompt（%s 会被替换为语气）" android:minLines="2" />
+        <EditText android:gravity="top" android:id="@id/et_prompt_emotion" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="情绪分析 Prompt" android:minLines="2" />
+        <EditText android:gravity="top" android:id="@id/et_prompt_keyword" android:layout_width="fill_parent" android:layout_height="wrap_content" android:hint="关键词提取 Prompt" android:minLines="2" />
+        <Button android:id="@id/btn_save" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_marginTop="16.0dip" android:text="保存全部配置" />
+    </LinearLayout>
+</ScrollView>

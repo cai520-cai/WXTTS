@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">微信语音播报</string>
+    <string name="enabled">启用语音播报</string>
+    <string name="whitelist_enabled">启用白名单</string>
+    <string name="continuous_enabled">连续播报</string>
+    <string name="group_name_enabled">播报群名称</string>
+    <string name="at_only_enabled">群聊仅@时播报</string>
+    <string name="say_sender">播报发件人</string>
+    <string name="quiet_enabled">免打扰时段</string>
+</resources>

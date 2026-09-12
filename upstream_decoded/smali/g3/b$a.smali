@@ -1,0 +1,68 @@
+.class public abstract Lg3/b$a;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lg3/b;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x409
+    name = "a"
+.end annotation
+
+
+# instance fields
+.field public a:Landroid/graphics/drawable/Animatable2$AnimationCallback;
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    return-void
+.end method
+
+
+# virtual methods
+.method public a()Landroid/graphics/drawable/Animatable2$AnimationCallback;
+    .locals 1
+    .annotation build Le/t0;
+        value = 0x17
+    .end annotation
+
+    .line 1
+    iget-object v0, p0, Lg3/b$a;->a:Landroid/graphics/drawable/Animatable2$AnimationCallback;
+
+    if-nez v0, :cond_0
+
+    new-instance v0, Lg3/b$a$a;
+
+    invoke-direct {v0, p0}, Lg3/b$a$a;-><init>(Lg3/b$a;)V
+
+    iput-object v0, p0, Lg3/b$a;->a:Landroid/graphics/drawable/Animatable2$AnimationCallback;
+
+    :cond_0
+    iget-object v0, p0, Lg3/b$a;->a:Landroid/graphics/drawable/Animatable2$AnimationCallback;
+
+    return-object v0
+.end method
+
+.method public b(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method
+
+.method public c(Landroid/graphics/drawable/Drawable;)V
+    .locals 0
+
+    .line 1
+    return-void
+.end method

@@ -1,0 +1,97 @@
+.class public Lo/v0$c;
+.super Lv/g;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lo/v0;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "c"
+.end annotation
+
+.annotation system Ldalvik/annotation/Signature;
+    value = {
+        "Lv/g<",
+        "Ljava/lang/Integer;",
+        "Landroid/graphics/PorterDuffColorFilter;",
+        ">;"
+    }
+.end annotation
+
+
+# direct methods
+.method public constructor <init>(I)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0, p1}, Lv/g;-><init>(I)V
+
+    return-void
+.end method
+
+.method public static s(ILandroid/graphics/PorterDuff$Mode;)I
+    .locals 1
+
+    .line 1
+    const/16 v0, 0x1f
+
+    add-int/2addr p0, v0
+
+    mul-int/2addr p0, v0
+
+    invoke-virtual {p1}, Ljava/lang/Object;->hashCode()I
+
+    move-result p1
+
+    add-int/2addr p0, p1
+
+    return p0
+.end method
+
+
+# virtual methods
+.method public t(ILandroid/graphics/PorterDuff$Mode;)Landroid/graphics/PorterDuffColorFilter;
+    .locals 0
+
+    .line 1
+    invoke-static {p1, p2}, Lo/v0$c;->s(ILandroid/graphics/PorterDuff$Mode;)I
+
+    move-result p1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1}, Lv/g;->f(Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/graphics/PorterDuffColorFilter;
+
+    return-object p1
+.end method
+
+.method public u(ILandroid/graphics/PorterDuff$Mode;Landroid/graphics/PorterDuffColorFilter;)Landroid/graphics/PorterDuffColorFilter;
+    .locals 0
+
+    .line 1
+    invoke-static {p1, p2}, Lo/v0$c;->s(ILandroid/graphics/PorterDuff$Mode;)I
+
+    move-result p1
+
+    invoke-static {p1}, Ljava/lang/Integer;->valueOf(I)Ljava/lang/Integer;
+
+    move-result-object p1
+
+    invoke-virtual {p0, p1, p3}, Lv/g;->j(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+
+    move-result-object p1
+
+    check-cast p1, Landroid/graphics/PorterDuffColorFilter;
+
+    return-object p1
+.end method

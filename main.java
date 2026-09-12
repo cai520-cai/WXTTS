@@ -683,7 +683,16 @@ void onHandleMsg(Object msg) {
             String recallDedupId = null;
             try { recallDedupId = (String) msg.getClass().getMethod("getMsgId").invoke(msg); } catch (Throwable t) {}
             if (recallDedupId == null || recallDedupId.isEmpty()) {
-                try { long svrId = (Long) msg.getClass().getMethod("getMsgSvrId").invoke(msg); if (svrId != 0) recallDedupId = "svr=" + svrId; } catch (Throwable t) {}
+                try {
+                    Object svrIdObj = msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+                    long svrId = 0;
+                    if (svrIdObj instanceof Number) {
+                        svrId = ((Number) svrIdObj).longValue();
+                    } else if (svrIdObj instanceof String) {
+                        try { svrId = Long.parseLong((String) svrIdObj); } catch (NumberFormatException e) { svrId = 0; }
+                    }
+                    if (svrId != 0) recallDedupId = "svr=" + svrId;
+                } catch (Throwable t) {}
             }
             if (recallDedupId != null && !recallDedupId.isEmpty()) {
                 if (processedMsgIds.contains(recallDedupId)) {
@@ -788,7 +797,13 @@ void onHandleMsg(Object msg) {
             }
         }
         try {
-            long svrId = (Long) msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+            Object svrIdObj = msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+            long svrId = 0;
+            if (svrIdObj instanceof Number) {
+                svrId = ((Number) svrIdObj).longValue();
+            } else if (svrIdObj instanceof String) {
+                try { svrId = Long.parseLong((String) svrIdObj); } catch (NumberFormatException e) { svrId = 0; }
+            }
             if (svrId != 0) {
                 String svrKey = "svr=" + svrId;
                 if (recentMemberChangeIds.contains(svrKey)) {
@@ -937,7 +952,8 @@ void onHandleMsg(Object msg) {
                     if (reply.isEmpty()) {
                         reply = "消息";
                     }
-                    int maxLen = getInt("max_text_len", 80);
+                    int maxLen = 80;
+                    try { maxLen = getInt("max_text_len", 80); } catch (Throwable t) { maxLen = 80; }
                     if (reply.length() > maxLen) {
                         reply = reply.substring(0, maxLen) + "…";
                     }
@@ -1084,7 +1100,16 @@ void onHandleMsg(Object msg) {
         if (!pat) {
             try { msgId = (String) msg.getClass().getMethod("getMsgId").invoke(msg); } catch (Throwable t) {}
             if (msgId == null || msgId.isEmpty()) {
-                try { long svrId = (Long) msg.getClass().getMethod("getMsgSvrId").invoke(msg); if (svrId != 0) msgId = "svr=" + svrId; } catch (Throwable t) {}
+                try {
+                    Object svrIdObj = msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+                    long svrId = 0;
+                    if (svrIdObj instanceof Number) {
+                        svrId = ((Number) svrIdObj).longValue();
+                    } else if (svrIdObj instanceof String) {
+                        try { svrId = Long.parseLong((String) svrIdObj); } catch (NumberFormatException e) { svrId = 0; }
+                    }
+                    if (svrId != 0) msgId = "svr=" + svrId;
+                } catch (Throwable t) {}
             }
             if (msgId != null && !msgId.isEmpty()) {
                 synchronized (recentMsgIds) {
@@ -1166,11 +1191,34 @@ String resolveName(Object msg, String sender, String sender2) {
             if (memberWxid == null || memberWxid.endsWith("@chatroom")) {
                 memberWxid = resolveGroupSender(msg);
             }
+            if (memberWxid == null || memberWxid.isEmpty() || memberWxid.endsWith("@chatroom")) {
+                if (sender2 != null && !sender2.isEmpty() && !sender2.endsWith("@chatroom")) {
+                    memberWxid = sender2;
+                }
+            }
+            if (memberWxid == null || memberWxid.isEmpty() || memberWxid.endsWith("@chatroom")) {
+                String pw = probeSenderWxid(msg);
+                if (pw != null && !pw.isEmpty()) {
+                    memberWxid = pw;
+                }
+            }
+            if (memberWxid == null || memberWxid.isEmpty() || memberWxid.endsWith("@chatroom")) {
+                String dw = probeDeepWxid(msg);
+                if (dw != null && !dw.isEmpty()) {
+                    memberWxid = dw;
+                }
+            }
             if (memberWxid != null && !memberWxid.isEmpty()) {
                 name = getRemarkThenNick(memberWxid);
                 if (name == null || name.isEmpty()) {
                     try {
                         name = (String) getFriendDisplayName(memberWxid, talker);
+                    } catch (Throwable t) {
+                    }
+                }
+                if (name == null || name.isEmpty()) {
+                    try {
+                        name = (String) getFriendName(memberWxid);
                     } catch (Throwable t) {
                     }
                 }
@@ -1189,6 +1237,12 @@ String resolveName(Object msg, String sender, String sender2) {
                         } catch (Throwable t) {
                         }
                     }
+                    if (n == null || n.isEmpty()) {
+                        try {
+                            n = (String) getFriendName(fromXml);
+                        } catch (Throwable t) {
+                        }
+                    }
                     if (n != null && !n.isEmpty()) {
                         name = n;
                     }
@@ -1203,18 +1257,40 @@ String resolveName(Object msg, String sender, String sender2) {
             }
         }
         if (name == null || name.isEmpty()) {
+            try {
+                String dc = msg.getContent();
+                if (dc != null && dc.length() > 300) {
+                    dc = dc.substring(0, 300);
+                }
+                log("resolveName 空: sender=" + sender + " sender2=" + sender2 + " talker=" + talker + " isGroup=" + msg.isGroupChat() + " probe=" + probeMsgSenders(msg) + " deep=" + probeDeepWxid(msg) + " content=" + dc + " xml=" + msg.getXml());
+            } catch (Throwable t) {
+            }
+        }
+        if (name == null || name.isEmpty()) {
+            boolean grp = false;
+            try {
+                grp = msg.isGroupChat();
+            } catch (Throwable t) {
+            }
+            String fallback = grp ? "有人" : "未知";
             if (sender != null && !sender.isEmpty()) {
                 if (sender.matches("^\\d{6,}$") || sender.matches("^[a-z0-9_@\\-.]+$")) {
-                    name = "未知";
+                    name = fallback;
                 } else {
                     name = sender;
                 }
             } else {
-                name = "未知";
+                name = fallback;
             }
         }
         return name;
     } catch (Throwable t) {
+        boolean grp = false;
+        try {
+            grp = msg.isGroupChat();
+        } catch (Throwable t2) {
+        }
+        String fallback = grp ? "有人" : "未知";
         if (sender2 != null && !sender2.isEmpty()) {
             if (!sender2.matches("^[a-z0-9_@\\-.]+$") && !sender2.matches("^\\d{6,}$")) {
                 return sender2;
@@ -1222,11 +1298,11 @@ String resolveName(Object msg, String sender, String sender2) {
         }
         if (sender != null && !sender.isEmpty()) {
             if (sender.matches("^\\d{6,}$") || sender.matches("^[a-z0-9_@\\-.]+$")) {
-                return "未知";
+                return fallback;
             }
             return sender;
         }
-        return "未知";
+        return fallback;
     }
 }
 
@@ -1246,20 +1322,71 @@ String getRemarkThenNick(String wxid) {
         }
     } catch (Throwable t) {
     }
+    try {
+        String fn = (String) getFriendName(wxid);
+        if (fn != null && !fn.isEmpty()) {
+            return fn;
+        }
+    } catch (Throwable t) {
+    }
     return null;
+}
+
+String transferName(String wxid, String self, String talker, boolean group) {
+    if (self != null && self.equals(wxid)) {
+        return "我";
+    }
+    String n = getRemarkThenNick(wxid);
+    if ((n == null || n.isEmpty()) && group) {
+        try {
+            n = (String) getFriendDisplayName(wxid, talker);
+        } catch (Throwable t) {
+        }
+    }
+    if (n == null || n.isEmpty()) {
+        return "有人";
+    }
+    return n;
 }
 
 String resolveGroupSender(Object msg) {
     try {
-        String xml = msg.getXml();
-        if (xml != null) {
+        String xml = null;
+        try {
+            xml = msg.getXml();
+        } catch (Throwable t) {
+        }
+        if (xml == null || xml.isEmpty()) {
+            try {
+                xml = msg.getContent();
+            } catch (Throwable t) {
+            }
+        }
+        if (xml != null && !xml.isEmpty()) {
             String f = extractXmlAttr(xml, "fromusername");
             if (f != null && !f.isEmpty()) {
-                return f;
+                String f2 = htmlUnescape(f).trim();
+                return f2.isEmpty() ? null : f2;
             }
             String h = headWxid(xml);
             if (h != null) {
                 return h;
+            }
+            String vh = videoSenderHead(xml);
+            if (vh != null) {
+                return vh;
+            }
+            String ft = extractTagText(xml, "fromusername");
+            if (ft != null && !ft.isEmpty()) {
+                String ft2 = htmlUnescape(ft).trim();
+                return ft2.isEmpty() ? null : ft2;
+            }
+            String cu = extractTagText(xml, "chatusr");
+            if (cu != null && !cu.isEmpty() && !cu.endsWith("@chatroom")) {
+                String cu2 = htmlUnescape(cu).trim();
+                if (!cu2.isEmpty() && !cu2.endsWith("@chatroom")) {
+                    return cu2;
+                }
             }
         }
     } catch (Throwable t) {
@@ -1278,8 +1405,218 @@ String headWxid(String s) {
         if (head.startsWith("wxid") || (head.indexOf('@') > 0 && !head.endsWith("@chatroom"))) {
             return head;
         }
+        if (s.indexOf("<msg") >= 0 && head.matches("^[a-zA-Z][a-zA-Z0-9_\\-]{2,63}$")) {
+            return head;
+        }
     }
     return null;
+}
+
+String videoSenderHead(String s) {
+    if (s == null) {
+        return null;
+    }
+    s = s.trim();
+    if (s.indexOf('<') >= 0 || s.indexOf('\n') >= 0 || s.indexOf(' ') >= 0) {
+        return null;
+    }
+    String[] parts = s.split(":");
+    if (parts.length < 3) {
+        return null;
+    }
+    for (int i = 1; i < parts.length; i++) {
+        if (!isNumeric(parts[i])) {
+            return null;
+        }
+    }
+    String head = parts[0].trim();
+    if (head.length() < 3) {
+        return null;
+    }
+    if (head.startsWith("wxid") || head.matches("^[a-zA-Z][a-zA-Z0-9_\\-]{2,63}$")) {
+        return head;
+    }
+    return null;
+}
+
+String htmlUnescape(String s) {
+    if (s == null) {
+        return null;
+    }
+    String r = s;
+    r = r.replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("&quot;", "\"")
+            .replace("&#39;", "'")
+            .replace("&nbsp;", " ")
+            .replace("&amp;", "&");
+    return r;
+}
+
+String probeMsgSenders(Object msg) {
+    try {
+        String[] names = {"getFromUser", "getFromUserName", "getFromUsername", "getSenderWxid", "getSendWxid", "getFromWxid", "getUsername", "getSpeaker", "getSendName", "getSenderName", "getMsgFromUser", "getFromNick", "getNickName", "getSendNick", "getFromNickName", "getMemberName", "getGroupMemberName"};
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < names.length; i++) {
+            try {
+                java.lang.reflect.Method m = msg.getClass().getMethod(names[i]);
+                Object v = m.invoke(msg);
+                if (v != null) {
+                    String sv = String.valueOf(v);
+                    if (!sv.isEmpty()) {
+                        sb.append(names[i]).append("=").append(sv.length() > 80 ? sv.substring(0, 80) : sv).append(" ");
+                    }
+                }
+            } catch (Throwable t) {
+            }
+        }
+        return sb.toString();
+    } catch (Throwable t) {
+        return "";
+    }
+}
+
+String probeSenderWxid(Object msg) {
+    try {
+        String[] names = {"getFromUser", "getFromUserName", "getFromUsername", "getSenderWxid", "getSendWxid", "getFromWxid", "getSender", "getUsername", "getMsgFromUser", "getMemberName"};
+        for (int i = 0; i < names.length; i++) {
+            try {
+                java.lang.reflect.Method m = msg.getClass().getMethod(names[i]);
+                Object v = m.invoke(msg);
+                if (v != null) {
+                    String sv = String.valueOf(v).trim();
+                    if (!sv.isEmpty() && !sv.endsWith("@chatroom")
+                            && (sv.startsWith("wxid") || sv.indexOf('@') > 0 || sv.matches("^[a-zA-Z][a-zA-Z0-9_\\-]{2,63}$"))) {
+                        return sv;
+                    }
+                }
+            } catch (Throwable t) {
+            }
+        }
+    } catch (Throwable t) {
+    }
+    return null;
+}
+
+boolean looksLikeMemberWxid(String sv) {
+    if (sv == null || sv.isEmpty()) {
+        return false;
+    }
+    sv = sv.trim();
+    if (sv.endsWith("@chatroom")) {
+        return false;
+    }
+    if (sv.startsWith("wxid")) {
+        return true;
+    }
+    if (sv.indexOf('@') > 0) {
+        return true;
+    }
+    return sv.matches("^[a-zA-Z][a-zA-Z0-9_\\-]{2,63}$");
+}
+
+String probeDeepWxid(Object msg) {
+    try {
+        String[] subMethods = {"getStoredMessage", "getFileMsg", "getQuoteMsg", "getMsgSource"};
+        for (int i = 0; i < subMethods.length; i++) {
+            try {
+                Object sub = msg.getClass().getMethod(subMethods[i]).invoke(msg);
+                if (sub == null) {
+                    continue;
+                }
+                String w = probeObjectWxid(sub, 0);
+                if (w != null && !w.isEmpty()) {
+                    return w;
+                }
+            } catch (Throwable t) {
+            }
+        }
+    } catch (Throwable t) {
+    }
+    return null;
+}
+
+String probeObjectWxid(Object obj, int depth) {
+    try {
+        if (obj == null || depth > 2) {
+            return null;
+        }
+        if (obj instanceof java.util.List) {
+            java.util.List ll = (java.util.List) obj;
+            for (int i = 0; i < ll.size(); i++) {
+                String w = probeObjectWxid(ll.get(i), depth + 1);
+                if (w != null) {
+                    return w;
+                }
+            }
+            return null;
+        }
+        if (obj instanceof String) {
+            String sv = (String) obj;
+            if (looksLikeMemberWxid(sv)) {
+                return sv;
+            }
+            int idx = sv.indexOf("wxid");
+            if (idx >= 0) {
+                String cand = sv.substring(idx).trim();
+                int sp = 0;
+                for (int k = 0; k < cand.length(); k++) {
+                    char c = cand.charAt(k);
+                    if (Character.isWhitespace(c) || c == ',' || c == ']' || c == '}' || c == ')' || c == '<') {
+                        break;
+                    }
+                    sp = k + 1;
+                }
+                if (sp > 0) {
+                    String w = cand.substring(0, sp);
+                    if (looksLikeMemberWxid(w)) {
+                        return w;
+                    }
+                }
+            }
+            return null;
+        }
+        try {
+            java.lang.reflect.Field[] fs = obj.getClass().getFields();
+            for (int i = 0; i < fs.length; i++) {
+                try {
+                    Object v = fs[i].get(obj);
+                    if (v != null) {
+                        String w = probeObjectWxid(v, depth + 1);
+                        if (w != null) {
+                            return w;
+                        }
+                    }
+                } catch (Throwable t) {
+                }
+            }
+        } catch (Throwable t) {
+        }
+        java.lang.reflect.Method[] ms = obj.getClass().getMethods();
+        for (int i = 0; i < ms.length; i++) {
+            String mn = ms[i].getName();
+            if (mn.equals("getClass") || mn.equals("hashCode") || mn.equals("toString")
+                    || mn.equals("notify") || mn.equals("notifyAll") || mn.equals("wait")
+                    || mn.equals("getAtUserList")) {
+                continue;
+            }
+            if (mn.startsWith("get") && ms[i].getParameterTypes().length == 0) {
+                try {
+                    Object v = ms[i].invoke(obj);
+                    if (v != null && v != obj) {
+                        String w = probeObjectWxid(v, depth + 1);
+                        if (w != null) {
+                            return w;
+                        }
+                    }
+                } catch (Throwable t) {
+                }
+            }
+        }
+        return null;
+    } catch (Throwable t) {
+        return null;
+    }
 }
 
 String buildSpeech(Object msg, boolean text, boolean image, boolean video, boolean voice, boolean emoji, boolean location, boolean file, boolean link, boolean kouling, boolean miniapp, boolean card, boolean record, boolean redpacket, boolean transfer, boolean pat, boolean finder, boolean music, String name) {
@@ -1353,9 +1690,11 @@ String buildSpeech(Object msg, boolean text, boolean image, boolean video, boole
         String selfWxid = null;
         String senderWxid = null;
         String tContent = null;
+        String tTalker = null;
         try { selfWxid = (String) msg.getSelfWxId(); } catch (Throwable t) {}
         try { senderWxid = (String) msg.getSendTalker(); } catch (Throwable t) {}
         try { tContent = msg.getContent(); } catch (Throwable t) {}
+        try { tTalker = (String) msg.getTalker(); } catch (Throwable t) {}
         String payer = null;
         String receiver = null;
         String paysubtype = null;
@@ -1363,25 +1702,26 @@ String buildSpeech(Object msg, boolean text, boolean image, boolean video, boole
             payer = extractTagText(tContent, "payer_username");
             receiver = extractTagText(tContent, "receiver_username");
             paysubtype = extractTagText(tContent, "paysubtype");
-            if (payer != null) { payer = payer.replace("<![CDATA[", "").replace("]]>", "").trim(); }
-            if (receiver != null) { receiver = receiver.replace("<![CDATA[", "").replace("]]>", "").trim(); }
-            if (paysubtype != null) { paysubtype = paysubtype.replace("<![CDATA[", "").replace("]]>", "").trim(); }
+            if (payer != null) { payer = htmlUnescape(payer.replace("<![CDATA[", "").replace("]]>", "")).trim(); }
+            if (receiver != null) { receiver = htmlUnescape(receiver.replace("<![CDATA[", "").replace("]]>", "")).trim(); }
+            if (paysubtype != null) { paysubtype = htmlUnescape(paysubtype.replace("<![CDATA[", "").replace("]]>", "")).trim(); }
         }
         log("TRANSFER_DIR self=" + selfWxid + " sender=" + senderWxid + " payer=" + payer + " receiver=" + receiver + " paysubtype=" + paysubtype);
         if ("3".equals(paysubtype)) {
             if (!saySender) { return "收到一笔转账"; }
-            if (isGroup) {
-                String receiverName = getRemarkThenNick(receiver);
-                String payerName = getRemarkThenNick(payer);
-                if (receiverName == null || receiverName.isEmpty()) { receiverName = "有人"; }
-                if (payerName == null || payerName.isEmpty()) { payerName = "有人"; }
-                return (sameGroup ? receiverName : prefix + receiverName) + "\uE000" + "接收了" + payerName + "的一笔转账";
-            }
-            return name + "\uE000" + "接收了你的一笔转账";
+            String receiverName = transferName(receiver, selfWxid, tTalker, isGroup);
+            String payerName = transferName(payer, selfWxid, tTalker, isGroup);
+            return isGroup
+                    ? (sameGroup ? receiverName : prefix + receiverName) + "\uE000" + "接收了" + payerName + "的一笔转账"
+                    : receiverName + "\uE000" + "接收了" + payerName + "的一笔转账";
         }
         if ("4".equals(paysubtype)) {
             if (!saySender) { return "收到一笔转账"; }
-            return isGroup ? (sameGroup ? name + "\uE000" + "退款了你的一笔转账" : prefix + name + "\uE000" + "退款了你的一笔转账") : name + "\uE000" + "退款了你的一笔转账";
+            String refundName = transferName(receiver, selfWxid, tTalker, isGroup);
+            String payerRef = transferName(payer, selfWxid, tTalker, isGroup);
+            return isGroup
+                    ? (sameGroup ? refundName : prefix + refundName) + "\uE000" + "退款了" + payerRef + "的一笔转账"
+                    : refundName + "\uE000" + "退款了" + payerRef + "的一笔转账";
         }
         if (saySender) {
             return isGroup ? (sameGroup ? name + "\uE000" + "发送了一笔转账" : prefix + name + "\uE000" + "发送了一笔转账") : (samePrivateSender ? name + "\uE000" + "发送了一笔转账" : name + "\uE000" + "给你发送了一笔转账");
@@ -1443,7 +1783,8 @@ String buildSpeech(Object msg, boolean text, boolean image, boolean video, boole
             }
             return base;
         }
-        int maxLen = getInt("max_text_len", 80);
+        int maxLen = 80;
+        try { maxLen = getInt("max_text_len", 80); } catch (Throwable t) { maxLen = 80; }
         if (content.length() > maxLen) {
             content = content.substring(0, maxLen) + "…";
         }
@@ -2359,7 +2700,13 @@ boolean isPatMsg(Object msg) {
         }
         if (dedupKey == null) {
             try {
-                long svrId = (Long) msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+                Object svrIdObj = msg.getClass().getMethod("getMsgSvrId").invoke(msg);
+                long svrId = 0;
+                if (svrIdObj instanceof Number) {
+                    svrId = ((Number) svrIdObj).longValue();
+                } else if (svrIdObj instanceof String) {
+                    try { svrId = Long.parseLong((String) svrIdObj); } catch (NumberFormatException e) { svrId = 0; }
+                }
                 if (svrId != 0) {
                     dedupKey = "svrId=" + svrId;
                 }
@@ -2534,6 +2881,14 @@ String cleanContent(String content) {
         String firstLine = content.substring(0, nl).trim();
         if (firstLine.indexOf(':') > 0 && firstLine.startsWith("wxid")) {
             content = content.substring(nl + 1).trim();
+        }
+    }
+    int c = content.indexOf(':');
+    if (c > 0 && c < 60) {
+        String head = content.substring(0, c).trim();
+        String rest = content.substring(c + 1).trim();
+        if (rest.startsWith("<") && (head.startsWith("wxid") || head.matches("^[a-zA-Z][a-zA-Z0-9_\\-]{2,63}$"))) {
+            content = rest;
         }
     }
     return content;
@@ -3143,6 +3498,11 @@ void showWhitelistPicker(String mode, String configKey, String title) {
                     String id = (String) fullIds.get(i);
                     if (id != null) whitelistCurrentIds.add(id);
                 }
+                reorderSelected(contactAdapter.fullDisplay, contactAdapter.fullIds, contactAdapter.fullTypes, whitelistCurrentIds);
+                contactAdapter.display.clear();
+                contactAdapter.display.addAll(contactAdapter.fullDisplay);
+                contactAdapter.ids.clear();
+                contactAdapter.ids.addAll(contactAdapter.fullIds);
                 contactAdapter.notifyDataSetChanged();
             }
         });
@@ -3150,6 +3510,11 @@ void showWhitelistPicker(String mode, String configKey, String title) {
             public void onClick(View v) {
                 if (whitelistCurrentIds == null || contactAdapter == null) return;
                 whitelistCurrentIds.clear();
+                reorderSelected(contactAdapter.fullDisplay, contactAdapter.fullIds, contactAdapter.fullTypes, whitelistCurrentIds);
+                contactAdapter.display.clear();
+                contactAdapter.display.addAll(contactAdapter.fullDisplay);
+                contactAdapter.ids.clear();
+                contactAdapter.ids.addAll(contactAdapter.fullIds);
                 contactAdapter.notifyDataSetChanged();
             }
         });
@@ -3226,17 +3591,14 @@ void showWhitelistPicker(String mode, String configKey, String title) {
                     nowSel = true;
                 }
                 try {
-                    if (view != null && view.getTag() != null) {
-                        Object[] tag = (Object[]) view.getTag();
-                        TextView cb = (TextView) tag[2];
-                        if (nowSel) {
-                            cb.setText("✓");
-                        } else {
-                            cb.setText("");
-                        }
-                    }
+                    reorderSelected(contactAdapter.fullDisplay, contactAdapter.fullIds, contactAdapter.fullTypes, whitelistCurrentIds);
+                    contactAdapter.display.clear();
+                    contactAdapter.display.addAll(contactAdapter.fullDisplay);
+                    contactAdapter.ids.clear();
+                    contactAdapter.ids.addAll(contactAdapter.fullIds);
+                    contactAdapter.notifyDataSetChanged();
                 } catch (Throwable t) {
-                    log("更新点击行失败: " + t);
+                    log("重排选中列表失败: " + t);
                 }
             }
         });

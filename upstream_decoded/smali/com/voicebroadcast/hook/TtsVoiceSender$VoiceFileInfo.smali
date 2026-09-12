@@ -1,0 +1,34 @@
+.class Lcom/voicebroadcast/hook/TtsVoiceSender$VoiceFileInfo;
+.super Ljava/lang/Object;
+.source "SourceFile"
+
+
+# annotations
+.annotation system Ldalvik/annotation/EnclosingClass;
+    value = Lcom/voicebroadcast/hook/TtsVoiceSender;
+.end annotation
+
+.annotation system Ldalvik/annotation/InnerClass;
+    accessFlags = 0x9
+    name = "VoiceFileInfo"
+.end annotation
+
+
+# instance fields
+.field final clientMsgId:Ljava/lang/String;
+
+.field final path:Ljava/lang/String;
+
+
+# direct methods
+.method public constructor <init>(Ljava/lang/String;Ljava/lang/String;)V
+    .locals 0
+
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    iput-object p1, p0, Lcom/voicebroadcast/hook/TtsVoiceSender$VoiceFileInfo;->path:Ljava/lang/String;
+
+    iput-object p2, p0, Lcom/voicebroadcast/hook/TtsVoiceSender$VoiceFileInfo;->clientMsgId:Ljava/lang/String;
+
+    return-void
+.end method
