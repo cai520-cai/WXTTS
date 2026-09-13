@@ -40,7 +40,7 @@ public class TtsEngine {
         } catch (Throwable ignored) {}
 
         PowerManager pm = (PowerManager) ctx.getApplicationContext().getSystemService(Context.POWER_SERVICE);
-        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "leshao:tts");
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "voicebroadcast:tts");
 
         mTts = new TextToSpeech(ctx, status -> {
             if (status == TextToSpeech.SUCCESS) {

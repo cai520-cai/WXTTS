@@ -49,7 +49,7 @@ public class CallFeatures {
     }
 
     private static void loadAutoAnswerList() {
-        String saved = com.leshao.v3.ContextManager.getPrefs()
+        String saved = com.voicebroadcast.ContextManager.getPrefs()
                 .getString("ls_call_auto_list", "");
         if (saved != null && !saved.isEmpty()) {
             for (String s : saved.split(",")) {

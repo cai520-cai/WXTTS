@@ -54,7 +54,7 @@ public class HookManager {
                 idx++;
             }
             XposedBridge.log("[HookManager] activateAll DONE (async), success=" + successCount.get() + " fail=" + failCount.get());
-        }, "leshao-hook-activate").start();
+        }, "voicebroadcast-hook-activate").start();
     }
 
     /** 注册Hook并追踪 */

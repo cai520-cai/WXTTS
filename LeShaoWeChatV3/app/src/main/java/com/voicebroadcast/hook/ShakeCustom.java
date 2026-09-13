@@ -137,7 +137,7 @@ public class ShakeCustom {
                     scrollToTop(activity);
                     break;
                 case 2:
-                    Intent intent = new Intent("com.leshao.v3.SHAKE_ACTION");
+                    Intent intent = new Intent("com.voicebroadcast.SHAKE_ACTION");
                     activity.sendBroadcast(intent);
                     Toast.makeText(activity, "摇一摇动作已触发", Toast.LENGTH_SHORT).show();
                     break;

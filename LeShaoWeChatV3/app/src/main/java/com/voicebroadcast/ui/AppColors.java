@@ -14,7 +14,7 @@ public class AppColors {
     private static boolean detectDarkMode() {
         // 优先用微信内部暗色检测（bk.C），更贴合微信「深色模式」设置；失败回退系统 uiMode
         try {
-            ClassLoader cl = com.leshao.v3.ContextManager.getClassLoader();
+            ClassLoader cl = com.voicebroadcast.ContextManager.getClassLoader();
             if (cl != null) {
                 Class<?> bk = de.robv.android.xposed.XposedHelpers.findClass("com.tencent.mm.ui.bk", cl);
                 Object r = de.robv.android.xposed.XposedHelpers.callStaticMethod(bk, "C");
@@ -22,7 +22,7 @@ public class AppColors {
             }
         } catch (Throwable ignored) {}
         try {
-            Context ctx = com.leshao.v3.ContextManager.getAppContext();
+            Context ctx = com.voicebroadcast.ContextManager.getAppContext();
             if (ctx != null) {
                 int nightMode = ctx.getResources().getConfiguration().uiMode
                         & Configuration.UI_MODE_NIGHT_MASK;

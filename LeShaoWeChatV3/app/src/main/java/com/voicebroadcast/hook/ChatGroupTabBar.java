@@ -129,7 +129,7 @@ public class ChatGroupTabBar {
             .setPositiveButton("管理分组", (d, w) -> {
                 try {
                     android.content.Intent intent = new android.content.Intent(act,
-                        com.leshao.v3.ui.SubPageActivity.class);
+                        com.voicebroadcast.ui.SubPageActivity.class);
                     intent.putExtra("title", "聊天分组管理");
                     intent.putExtra("pageId", 14);
                     act.startActivity(intent);

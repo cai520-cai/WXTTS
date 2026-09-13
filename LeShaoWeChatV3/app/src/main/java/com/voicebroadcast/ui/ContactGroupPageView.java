@@ -101,7 +101,7 @@ public class ContactGroupPageView {
         tvTitle.setTextColor(AppColors.text1()); tvTitle.setTypeface(null, Typeface.BOLD);
         textCol.addView(tvTitle);
         final TextView tvSub = new TextView(ctx);
-        String initLabel = com.leshao.v3.hook.FakeAddSource.sceneName(fakeScene);
+        String initLabel = com.voicebroadcast.hook.FakeAddSource.sceneName(fakeScene);
         tvSub.setText("伪装" + initLabel + "添加");
         tvSub.setTextSize(12); tvSub.setTextColor(AppColors.text2());
         tvSub.setPadding(0, (int)(3 * d), 0, 0);
@@ -118,7 +118,7 @@ public class ContactGroupPageView {
             int dlgTheme = AppColors.isDarkMode()
                     ? android.R.style.Theme_DeviceDefault_Dialog_Alert
                     : android.R.style.Theme_DeviceDefault_Light_Dialog_Alert;
-            java.util.Map<Integer, String> sceneMap = com.leshao.v3.hook.FakeAddSource.SCENE_MAP;
+            java.util.Map<Integer, String> sceneMap = com.voicebroadcast.hook.FakeAddSource.SCENE_MAP;
             final Integer[] sceneKeys = sceneMap.keySet().toArray(new Integer[0]);
             final String[] sceneLabels = sceneMap.values().toArray(new String[0]);
             for (int i = 0; i < sceneLabels.length; i++) {
@@ -151,7 +151,7 @@ public class ContactGroupPageView {
                 tv.setPadding((int)(8*d), (int)(10*d), (int)(8*d), (int)(10*d));
                 tv.setOnClickListener(v2 -> {
                     int selected = sceneKeys[idx];
-                    String selName = com.leshao.v3.hook.FakeAddSource.sceneName(selected);
+                    String selName = com.voicebroadcast.hook.FakeAddSource.sceneName(selected);
                     if (prefs != null) prefs.edit().putInt("ls_fake_add_source_scene", selected).commit();
                     LogWriter.log("ContactGroupView", "伪装来源: 选择类型 scene=" + selected
                             + " (" + selName + ")");
@@ -194,18 +194,18 @@ public class ContactGroupPageView {
         root.addView(candyDivider(ctx, d));
 
         LinearLayout cardEntry = makeCard(ctx, d);
-        boolean cornerMenuOn = com.leshao.v3.wm.utils.WmPrefs.isCornerMenu();
-        boolean longPressMenuOn = com.leshao.v3.wm.utils.WmPrefs.isLongPressMenu();
-        boolean inputButtonsOn = com.leshao.v3.wm.utils.WmPrefs.isInputButtons();
+        boolean cornerMenuOn = com.voicebroadcast.wm.utils.WmPrefs.isCornerMenu();
+        boolean longPressMenuOn = com.voicebroadcast.wm.utils.WmPrefs.isLongPressMenu();
+        boolean inputButtonsOn = com.voicebroadcast.wm.utils.WmPrefs.isInputButtons();
 
         cardEntry.addView(switchRow(ctx, d, "微信左上角菜单", null, cornerMenuOn, (v, on) -> {
-            com.leshao.v3.wm.utils.WmPrefs.set("corner_menu", on);
+            com.voicebroadcast.wm.utils.WmPrefs.set("corner_menu", on);
         }, null));
         cardEntry.addView(switchRow(ctx, d, "聊天窗口长按菜单", null, longPressMenuOn, (v, on) -> {
-            com.leshao.v3.wm.utils.WmPrefs.set("long_press_menu", on);
+            com.voicebroadcast.wm.utils.WmPrefs.set("long_press_menu", on);
         }, null));
         cardEntry.addView(switchRow(ctx, d, "输入框功能按钮", null, inputButtonsOn, (v, on) -> {
-            com.leshao.v3.wm.utils.WmPrefs.set("input_buttons", on);
+            com.voicebroadcast.wm.utils.WmPrefs.set("input_buttons", on);
         }, null));
         root.addView(cardEntry);
 

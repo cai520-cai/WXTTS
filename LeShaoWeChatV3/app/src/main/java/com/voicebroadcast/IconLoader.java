@@ -19,7 +19,7 @@ import java.io.InputStreamReader;
 
 /**
  * 模块图标加载工具
- * 从模块 APK (com.leshao.v3) 加载 drawable 资源，供 hook 注入微信进程时使用。
+ * 从模块 APK (com.voicebroadcast) 加载 drawable 资源，供 hook 注入微信进程时使用。
  * 四级回退定位模块 APK：
  * 1. /proc/self/maps 解析（不限制 .apk 后缀，Xposed 可能只映射 .dex）
  * 2. PackageManager.getApplicationInfo（最直接的系统 API）
@@ -28,7 +28,7 @@ import java.io.InputStreamReader;
  */
 public final class IconLoader {
 
-    public static final String MODULE_PKG = "com.leshao.v3";
+    public static final String MODULE_PKG = "com.voicebroadcast";
 
     public static final int IC_VOICE_FORWARD = 0;
     public static final int IC_VOICE_LIST    = 1;

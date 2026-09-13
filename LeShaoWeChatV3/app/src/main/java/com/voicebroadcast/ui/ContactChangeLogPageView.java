@@ -262,7 +262,7 @@ public class ContactChangeLogPageView {
                     iv.post(() -> iv.setImageBitmap(scaled));
                 }
             } catch (Throwable ignored) {}
-        }, "leshao-av-log").start();
+        }, "voicebroadcast-av-log").start();
     }
 
     private static View divider(Context ctx, float d) {

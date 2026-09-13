@@ -621,7 +621,7 @@ public class TtsVoiceSender {
             } catch (Throwable t) {
                 LogWriter.log(TAG, "async TTS crash: " + t.getClass().getSimpleName() + " " + t.getMessage());
             }
-        }, "leshao-tts-send");
+        }, "voicebroadcast-tts-send");
         worker.setDaemon(true);
         worker.start();
     }
@@ -690,7 +690,7 @@ public class TtsVoiceSender {
                 try { Thread.sleep(100); } catch (InterruptedException ignored) {}
             }
             LogWriter.log(TAG, "amr fixup: msgId not assigned within 8s, type=" + getMsgType(msg));
-        }, "leshao-amr-fixup");
+        }, "voicebroadcast-amr-fixup");
         t.start();
     }
 
@@ -1748,7 +1748,7 @@ public class TtsVoiceSender {
             } catch (Throwable t) {
                 LogWriter.log(TAG, "e9 late state err: " + t.getMessage());
             }
-        }, "leshao-trace-state").start();
+        }, "voicebroadcast-trace-state").start();
     }
 
     private static void hookChattingUiSend(ClassLoader cl) {
@@ -1895,7 +1895,7 @@ public class TtsVoiceSender {
             int count = 0;
             for (StackTraceElement e : st) {
                 String cn = e.getClassName();
-                if (cn.startsWith("com.leshao.v3") || cn.startsWith("de.robv.android.xposed")
+                if (cn.startsWith("com.voicebroadcast") || cn.startsWith("de.robv.android.xposed")
                         || cn.startsWith("dalvik.") || cn.startsWith("java.lang")
                         || cn.startsWith("java.util")) continue;
                 if (count >= 25) break;
@@ -3207,7 +3207,7 @@ public class TtsVoiceSender {
             } catch (Throwable t2) {
                 LogWriter.log(TAG, "sendWavAsVoice error: " + t2.getClass().getSimpleName() + " " + t2.getMessage());
             }
-        }, "leshao-wav-voice");
+        }, "voicebroadcast-wav-voice");
         t.setDaemon(true);
         t.start();
     }

@@ -36,7 +36,7 @@ public class FriendRequestHook {
 
     public static void hook(ClassLoader cl) {
         try {
-            android.content.SharedPreferences p = com.leshao.v3.ContextManager.getPrefs();
+            android.content.SharedPreferences p = com.voicebroadcast.ContextManager.getPrefs();
             if (p != null) sEnabled = p.getBoolean("ls_auto_accept_friend", true);
         } catch (Throwable ignored) {}
 

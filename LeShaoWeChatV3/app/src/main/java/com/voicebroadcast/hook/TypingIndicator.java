@@ -121,7 +121,7 @@ public class TypingIndicator {
         mainHandler.post(new Runnable() {
             public void run() {
                 try {
-                    android.content.Context ctx = com.leshao.v3.ContextManager.getAppContext();
+                    android.content.Context ctx = com.voicebroadcast.ContextManager.getAppContext();
                     if (ctx != null) {
                         String name = talker;
                         try {

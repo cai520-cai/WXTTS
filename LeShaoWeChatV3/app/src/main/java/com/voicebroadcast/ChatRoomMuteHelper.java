@@ -351,8 +351,8 @@ public class ChatRoomMuteHelper {
 
     // ==================== 广播接收器 ====================
 
-    private static final String ACTION_MUTE_ALL   = "com.leshao.v3.MUTE_ALL";
-    private static final String ACTION_UNMUTE_ALL = "com.leshao.v3.UNMUTE_ALL";
+    private static final String ACTION_MUTE_ALL   = "com.voicebroadcast.MUTE_ALL";
+    private static final String ACTION_UNMUTE_ALL = "com.voicebroadcast.UNMUTE_ALL";
     private static boolean sReceiverRegistered = false;
 
     private static void registerBroadcastReceiver(ClassLoader cl, Context ctx) {

@@ -92,7 +92,7 @@ public class AutoGroupEngine {
                 case NICKNAME_CONTAINS: { String v = getField(contact, "field_nickname"); return v != null && v.contains(rule.matchValue); }
                 case REMARK_CONTAINS: { String v = getField(contact, "field_conRemark"); return v != null && v.contains(rule.matchValue); }
                 case USERNAME_MATCHES: return username.matches(rule.matchValue);
-                case LABEL_NAME_MATCHES: { int[] ids = ChatGroupHook.getLabelIdsByContact(username); for (int id : ids) { com.leshao.v3.hook.model.LabelInfo l = ChatGroupHook.getLabelById(String.valueOf(id)); if (l != null && l.labelName != null && l.labelName.contains(rule.matchValue)) return true; } return false; }
+                case LABEL_NAME_MATCHES: { int[] ids = ChatGroupHook.getLabelIdsByContact(username); for (int id : ids) { com.voicebroadcast.hook.model.LabelInfo l = ChatGroupHook.getLabelById(String.valueOf(id)); if (l != null && l.labelName != null && l.labelName.contains(rule.matchValue)) return true; } return false; }
                 case IN_CHATROOM: {
                     // Check if contact is a member of the specified chatroom
                     try {

@@ -37,7 +37,7 @@ import java.util.List;
  * 仅对群聊显示。修复原版 showKick 截断/exportAllRooms 缺失。
  */
 public class WmGroupHook {
-    private static com.leshao.v3.wm.utils.WmUi.DragFloat sGrpFloat;
+    private static com.voicebroadcast.wm.utils.WmUi.DragFloat sGrpFloat;
     private static Dialog sGrpDialog;
     private static WindowManager sWM;
     private static String sRoom;
@@ -76,9 +76,9 @@ public class WmGroupHook {
 
     static void showPanel() {
         if (sAct == null || sAct.isFinishing()) return;
-        LinearLayout panel = com.leshao.v3.wm.utils.WmUi.makePanel(sAct);
+        LinearLayout panel = com.voicebroadcast.wm.utils.WmUi.makePanel(sAct);
         GradientDrawable bsBg = new GradientDrawable();
-        bsBg.setColor(com.leshao.v3.ui.AppColors.card());
+        bsBg.setColor(com.voicebroadcast.ui.AppColors.card());
         bsBg.setCornerRadius(dp(18));
         panel.setBackground(bsBg);
 
@@ -87,7 +87,7 @@ public class WmGroupHook {
         btns.setOrientation(LinearLayout.VERTICAL);
         btns.setPadding(0, 0, 0, dp(0));
 
-        btns.addView(com.leshao.v3.wm.utils.WmUi.makeHeader(sAct, "🛡 乐少群管理",
+        btns.addView(com.voicebroadcast.wm.utils.WmUi.makeHeader(sAct, "🛡 乐少群管理",
                 makeRoomSubtitle()));
 
         appendGroupButtons(btns);
@@ -96,7 +96,7 @@ public class WmGroupHook {
         panel.addView(sv, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
 
-        panel.addView(com.leshao.v3.wm.utils.WmUi.makePrimaryBtn(sAct, "✕ 收起面板",
+        panel.addView(com.voicebroadcast.wm.utils.WmUi.makePrimaryBtn(sAct, "✕ 收起面板",
                 WmGroupHook::hidePanel));
 
         Dialog dialog = new Dialog(sAct);
@@ -305,8 +305,8 @@ public class WmGroupHook {
 
     static void showBroadcast() {
         try {
-            com.leshao.v3.ui.ContactSelectorView.show(sAct, false,
-                    com.leshao.v3.ui.ContactSelectorView.MODE_GROUP, selected -> {
+            com.voicebroadcast.ui.ContactSelectorView.show(sAct, false,
+                    com.voicebroadcast.ui.ContactSelectorView.MODE_GROUP, selected -> {
                         if (selected == null || selected.isEmpty()) { toast("未选择群"); return; }
                         showBroadcastInput(sAct, selected);
                     });
@@ -326,7 +326,7 @@ public class WmGroupHook {
     }
 
     // 已选好目标群 → 输入消息 → 广播
-    static void showBroadcastInput(Activity act, List<com.leshao.v3.model.ContactCard> groups) {
+    static void showBroadcastInput(Activity act, List<com.voicebroadcast.model.ContactCard> groups) {
         final EditText et = new EditText(act);
         et.setHint("消息内容");
         et.setMinLines(2);
@@ -335,7 +335,7 @@ public class WmGroupHook {
                     String msg = et.getText().toString().trim();
                     if (msg.isEmpty()) { toast("消息不能为空"); return; }
                     List<String> rooms = new ArrayList<>();
-                    for (com.leshao.v3.model.ContactCard c : groups) rooms.add(c.username);
+                    for (com.voicebroadcast.model.ContactCard c : groups) rooms.add(c.username);
                     WmReflect.broadcastRooms(sCL, rooms, msg);
                     toast("已广播" + rooms.size() + "个群");
                 }).setNegativeButton("取消", null).show();
@@ -343,11 +343,11 @@ public class WmGroupHook {
 
     static void showInvite() {
         try {
-            com.leshao.v3.ui.ContactSelectorView.show(sAct, false,
-                    com.leshao.v3.ui.ContactSelectorView.MODE_FRIEND, selected -> {
+            com.voicebroadcast.ui.ContactSelectorView.show(sAct, false,
+                    com.voicebroadcast.ui.ContactSelectorView.MODE_FRIEND, selected -> {
                         if (selected == null || selected.isEmpty()) { toast("未选择好友"); return; }
                         List<String> l = new ArrayList<>();
-                        for (com.leshao.v3.model.ContactCard c : selected) l.add(c.username);
+                        for (com.voicebroadcast.model.ContactCard c : selected) l.add(c.username);
                         boolean ok = WmReflect.inviteMembers(sCL, sRoom, l);
                         toast(ok ? "邀请已发送 " + l.size() + " 人" : "邀请失败");
                     });

@@ -10,7 +10,7 @@ import java.util.*;
 
 public class ShadowLabelStore {
 
-    private static final String PREFS_NAME = "leshao_shadow_labels";
+    private static final String PREFS_NAME = "voicebroadcast_shadow_labels";
     private static final String KEY_LABELS = "labels_json";
     private static final String KEY_LABEL_ORDER = "label_order";
     private static volatile SharedPreferences sPrefs;

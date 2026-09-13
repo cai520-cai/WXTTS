@@ -12,7 +12,7 @@ import de.robv.android.xposed.XposedBridge;
 
 public class LogWriter {
 
-    private static final String LOG_FILE = "leshao_v3_log.txt";
+    private static final String LOG_FILE = "voicebroadcast_log.txt";
     private static final long MAX_SIZE = 512 * 1024;
     private static final int FLUSH_INTERVAL_MS = 2000;
     private static volatile boolean ready = false;
@@ -70,7 +70,7 @@ public class LogWriter {
             } finally {
                 try { if (bw != null) bw.close(); } catch (Throwable ignored) {}
             }
-        }, "leshao-log-writer").start();
+        }, "voicebroadcast-log-writer").start();
     }
 
     private static BufferedWriter openWriter(File f) {

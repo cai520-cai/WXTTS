@@ -70,7 +70,7 @@ public class ChatGroupHook {
                 } else if (sRetryCount < 6) {
                     scheduleRetry(delayMs + 300);
                 }
-            }, "leshao-retry").start();
+            }, "voicebroadcast-retry").start();
         }, delayMs);
     }
 

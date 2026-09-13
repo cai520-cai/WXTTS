@@ -39,7 +39,7 @@ public class ChatBackup {
         Context ctx = ContextManager.getAppContext();
         String base = ctx != null ? ctx.getFilesDir().getAbsolutePath()
             : "/data/data/com.tencent.mm/files";
-        return base + "/leshao_v3_logs";
+        return base + "/voicebroadcast_logs";
     }
     private static String triggerFile() { return logRoot() + "/trigger_backup"; }
     private static String restoreTrigger() { return logRoot() + "/trigger_restore"; }
@@ -94,7 +94,7 @@ public class ChatBackup {
                         // 备份涉及大文件复制，放子线程避免阻塞主线程
                         new Thread(() -> {
                             try { checkAndPerformBackup(); } catch (Throwable ignored) {}
-                        }, "leshao-backup").start();
+                        }, "voicebroadcast-backup").start();
                     }, 8000);
                 }
             });
@@ -104,7 +104,7 @@ public class ChatBackup {
                 protected void beforeHookedMethod(MethodHookParam param) {
                     new Thread(() -> {
                         try { checkAndPerformBackup(); } catch (Throwable ignored) {}
-                    }, "leshao-backup-exit").start();
+                    }, "voicebroadcast-backup-exit").start();
                 }
             });
         } catch (Throwable t) {
@@ -203,12 +203,12 @@ public class ChatBackup {
 
             try {
                 ctx.registerReceiver(receiver,
-                    new IntentFilter("com.leshao.v3.BACKUP_ALARM"),
+                    new IntentFilter("com.voicebroadcast.BACKUP_ALARM"),
                     Context.RECEIVER_NOT_EXPORTED);
             } catch (Throwable ignored) {}
 
             AlarmManager alarmMgr = (AlarmManager) ctx.getSystemService(Context.ALARM_SERVICE);
-            Intent intent = new Intent("com.leshao.v3.BACKUP_ALARM");
+            Intent intent = new Intent("com.voicebroadcast.BACKUP_ALARM");
             intent.setPackage(ctx.getPackageName());
             PendingIntent pending = PendingIntent.getBroadcast(ctx, 9999, intent,
                     PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE);

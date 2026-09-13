@@ -140,7 +140,7 @@ public class MainActivity {
         sUserAlias = sUserWxid;
         if (sUserNickname == null || sUserNickname.isEmpty()) sUserNickname = sUserWxid;
 
-        new Thread(() -> loadUserDetails(ctx), "leshao-userinfo").start();
+        new Thread(() -> loadUserDetails(ctx), "voicebroadcast-userinfo").start();
     }
 
     private static void loadUserDetails(Context ctx) {
@@ -657,7 +657,7 @@ public class MainActivity {
         View aiItem = makeListRow(ctx, d, 0x1F916, "AI助手", 0, false, v -> {
             dismissDialog();
             LogWriter.log(TAG, "AI 入口: 点击，打开微信内面板");
-            com.leshao.v3.ai.AiPanelDialog.show(act);
+            com.voicebroadcast.ai.AiPanelDialog.show(act);
         });
         aiItem.setTag("menu_item");
         searchMap.put(aiItem, "AI助手|AI聊天|聊天总结|推荐回复|润色|情绪分析|关键词|DeepSeek|OpenAI|人工智能");
@@ -1009,7 +1009,7 @@ public class MainActivity {
         try {
             Resources res = IconLoader.moduleResources(ctx);
             if (res == null) return null;
-            int resId = res.getIdentifier(name, "drawable", "com.leshao.v3");
+            int resId = res.getIdentifier(name, "drawable", "com.voicebroadcast");
             if (resId != 0) {
                 return res.getDrawable(resId);
             }

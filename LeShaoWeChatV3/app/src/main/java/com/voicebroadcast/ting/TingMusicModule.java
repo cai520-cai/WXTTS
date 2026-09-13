@@ -701,7 +701,7 @@ public class TingMusicModule {
                     } catch (Throwable t) {
                         LogWriter.log(TAG, "[点歌] 语音发送异常: " + t.getMessage());
                     }
-                }, "leshao-voice-send").start();
+                }, "voicebroadcast-voice-send").start();
             }
             @Override public void onFail(String error) {
                 LogWriter.log(TAG, "[点歌] 语音下载失败: " + error);
@@ -1687,7 +1687,7 @@ public class TingMusicModule {
                             int cnt = 0;
                             for (StackTraceElement e : st) {
                                 String cn = e.getClassName();
-                                if (cn.startsWith("com.leshao.v3") || cn.startsWith("de.robv.android.xposed")
+                                if (cn.startsWith("com.voicebroadcast") || cn.startsWith("de.robv.android.xposed")
                                         || cn.startsWith("dalvik.") || cn.startsWith("java.lang")
                                         || cn.startsWith("java.util") || cn.startsWith("java.lang.reflect")) continue;
                                 if (cnt >= 30) break;
@@ -1909,7 +1909,7 @@ public class TingMusicModule {
         int n = Math.min(st.length, 45);
         for (int i = 0; i < n; i++) {
             String cn = st[i].getClassName();
-            if (cn.startsWith("de.robv.android.xposed") || cn.startsWith("com.leshao")
+            if (cn.startsWith("de.robv.android.xposed") || cn.startsWith("com.voicebroadcast")
                     || cn.startsWith("java.lang.Thread")) continue;
             sb.append(cn).append(".").append(st[i].getMethodName());
             if (i < n - 1) sb.append(" <- ");

@@ -34,7 +34,7 @@ public class CubeTtsPlayer {
         mCacheDir.mkdirs();
 
         PowerManager pm = (PowerManager) ctx.getApplicationContext().getSystemService(Context.POWER_SERVICE);
-        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "leshao:cube_tts");
+        mWakeLock = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "voicebroadcast:cube_tts");
     }
 
     public boolean isSpeaking() { return mPlaying; }
@@ -88,7 +88,7 @@ public class CubeTtsPlayer {
                 releaseWakeLock();
                 if (!mPaused) processQueue();
             }
-        }, "leshao-cube-tts").start();
+        }, "voicebroadcast-cube-tts").start();
     }
 
     private File synthesize(String text) {

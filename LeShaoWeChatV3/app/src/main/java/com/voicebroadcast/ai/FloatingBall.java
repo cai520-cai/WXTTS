@@ -18,7 +18,7 @@ import com.voicebroadcast.UnifiedPrefs;
 
 public class FloatingBall {
     private static final String TAG = "FloatingBall";
-    private static final String SP = "leshao_ball_pos";
+    private static final String SP = "voicebroadcast_ball_pos";
     private static WindowManager sWM;
     private static Activity sAct;
     private static View sBall;

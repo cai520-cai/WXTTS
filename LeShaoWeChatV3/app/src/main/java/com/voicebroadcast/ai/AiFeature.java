@@ -41,7 +41,7 @@ public class AiFeature {
     }
 
     private static void run(Activity act, String prompt, boolean replaceInput) {
-        com.leshao.v3.LogWriter.log("AiFeature", "run: 发起请求 model=" + AiConfig.activeModel()
+        com.voicebroadcast.LogWriter.log("AiFeature", "run: 发起请求 model=" + AiConfig.activeModel()
                 + " replace=" + replaceInput + " promptLen=" + prompt.length());
         Toast.makeText(act, "AI 处理中…", Toast.LENGTH_SHORT).show();
         List<AiClient.ChatMessage> req = new ArrayList<>();
@@ -60,14 +60,14 @@ public class AiFeature {
                 ChatHooks.MAIN.post(() -> ChatHooks.fillInput(act, snap));
             }
             @Override public void onDone(String fullText) {
-                com.leshao.v3.LogWriter.log("AiFeature", "run: onDone len=" + (fullText == null ? 0 : fullText.length()));
+                com.voicebroadcast.LogWriter.log("AiFeature", "run: onDone len=" + (fullText == null ? 0 : fullText.length()));
                 ChatHooks.MAIN.post(() -> {
                     if (replaceInput) ChatHooks.fillInput(act, fullText);
                     else showResultDialog(act, fullText);
                 });
             }
             @Override public void onError(String msg) {
-                com.leshao.v3.LogWriter.log("AiFeature", "run: onError " + msg);
+                com.voicebroadcast.LogWriter.log("AiFeature", "run: onError " + msg);
                 ChatHooks.MAIN.post(() -> Toast.makeText(act, "失败: " + msg, Toast.LENGTH_LONG).show());
             }
         });
@@ -91,10 +91,10 @@ public class AiFeature {
         try {
             String txt = ChatHooks.readInputText(act);
             if (txt == null) {
-                com.leshao.v3.LogWriter.log("AiFeature", "getInputText: 未找到输入框");
+                com.voicebroadcast.LogWriter.log("AiFeature", "getInputText: 未找到输入框");
                 return null;
             }
-            com.leshao.v3.LogWriter.log("AiFeature", "getInputText: 长度=" + txt.length());
+            com.voicebroadcast.LogWriter.log("AiFeature", "getInputText: 长度=" + txt.length());
             return txt;
         } catch (Throwable t) { return null; }
     }

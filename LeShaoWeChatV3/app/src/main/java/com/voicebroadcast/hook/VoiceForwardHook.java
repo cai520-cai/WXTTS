@@ -218,9 +218,9 @@ public class VoiceForwardHook {
     /** 给菜单项设置"语音转发"图标 */
     private static void setMenuIcon(Object menuItem) {
         try {
-            android.graphics.drawable.Drawable d = com.leshao.v3.IconLoader.load(
-                    com.leshao.v3.ContextManager.getAppContext(),
-                    com.leshao.v3.IconLoader.IC_VOICE_FORWARD, 20);
+            android.graphics.drawable.Drawable d = com.voicebroadcast.IconLoader.load(
+                    com.voicebroadcast.ContextManager.getAppContext(),
+                    com.voicebroadcast.IconLoader.IC_VOICE_FORWARD, 20);
             if (d == null) return;
             try {
                 menuItem.getClass().getMethod("setIcon", android.graphics.drawable.Drawable.class)
@@ -268,7 +268,7 @@ public class VoiceForwardHook {
             } catch (Throwable t) {
                 LogWriter.log(TAG, "scan error: " + t.getMessage());
             }
-        }, "leshao-vf-dex-scan").start();
+        }, "voicebroadcast-vf-dex-scan").start();
     }
 
     // 对指定 simpleName 的类做全方法 hook（找 click handler）
@@ -506,8 +506,8 @@ public class VoiceForwardHook {
                 try {
                     Method addItem = menuObj.getClass().getMethod("addMenuItem", int.class, CharSequence.class, Drawable.class);
                     Object item = addItem.invoke(menuObj, MENU_ID, "语音转发",
-                            com.leshao.v3.IconLoader.load(itemView.getContext(),
-                                    com.leshao.v3.IconLoader.IC_VOICE_FORWARD, 20));
+                            com.voicebroadcast.IconLoader.load(itemView.getContext(),
+                                    com.voicebroadcast.IconLoader.IC_VOICE_FORWARD, 20));
                     LogWriter.log(TAG, "added via addMenuItem(int,CharSequence,Drawable)");
                     ok = true;
                 } catch (Throwable ignored) {}
@@ -646,9 +646,9 @@ public class VoiceForwardHook {
             // 用我们自己的 ContactPickerDialog
             final Activity fwdAct = act;
             final Object fwdMsg = (sPendingMsg != null) ? sPendingMsg : msg;
-            com.leshao.v3.ui.ContactPickerDialog.show(act, "", 
-                com.leshao.v3.ui.ContactPickerDialog.MODE_GROUP,
-                new com.leshao.v3.ui.ContactPickerDialog.OnContactsSelected() {
+            com.voicebroadcast.ui.ContactPickerDialog.show(act, "", 
+                com.voicebroadcast.ui.ContactPickerDialog.MODE_GROUP,
+                new com.voicebroadcast.ui.ContactPickerDialog.OnContactsSelected() {
                     @Override
                     public void onSelected(Set<String> wxids, String display) {
                         LogWriter.log(TAG, "forward: selected=" + wxids + " display=" + display);

@@ -445,7 +445,7 @@ public class ContactChangeLog {
             File root = PathUtil.getLeshaoRootDir(ctx);
             sLogFile = new File(root, "contact_changes" + uinSuffix + ".json");
         } else {
-            sLogFile = new File("/sdcard/leshao_v3_logs/contact_changes" + uinSuffix + ".json");
+            sLogFile = new File("/sdcard/voicebroadcast_logs/contact_changes" + uinSuffix + ".json");
         }
         sLogFile.getParentFile().mkdirs();
         return sLogFile;

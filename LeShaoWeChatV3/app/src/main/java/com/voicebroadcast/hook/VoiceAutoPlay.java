@@ -159,9 +159,9 @@ public class VoiceAutoPlay {
         if (talker == null) return false;
         try {
             // 从 WmPrefs 读取实时开关状态
-            android.content.Context ctx = com.leshao.v3.ContextManager.getAppContext();
+            android.content.Context ctx = com.voicebroadcast.ContextManager.getAppContext();
             if (ctx != null) {
-                boolean prefsOn = com.leshao.v3.UnifiedPrefs.get(ctx, "wm_prefs")
+                boolean prefsOn = com.voicebroadcast.UnifiedPrefs.get(ctx, "wm_prefs")
                         .getBoolean("auto_voice", true);
                 if (!prefsOn) return false;
             }
@@ -171,7 +171,7 @@ public class VoiceAutoPlay {
         // 黑名单内一律不自动播放; 白名单非空时仅白名单内自动播放;
         // 白名单为空且严格模式开启时不自动播放
         try {
-            com.leshao.v3.model.ModuleConfig cfg = com.leshao.v3.model.ModuleConfig.load(com.leshao.v3.ContextManager.getPrefs());
+            com.voicebroadcast.model.ModuleConfig cfg = com.voicebroadcast.model.ModuleConfig.load(com.voicebroadcast.ContextManager.getPrefs());
             if (!cfg.announceBlacklist.isEmpty() && cfg.announceBlacklist.contains(talker)) {
                 return false;
             }
@@ -322,7 +322,7 @@ public class VoiceAutoPlay {
     private static String extractVoiceId(Object e9, long msgId) {
         // 方法0: 优先使用 d1 捕获的 XML voiceid
         try {
-            String captured = com.leshao.v3.hook.TtsVoiceSender.getCapturedVoiceId(msgId);
+            String captured = com.voicebroadcast.hook.TtsVoiceSender.getCapturedVoiceId(msgId);
             if (captured != null && !captured.isEmpty()) {
                 LogWriter.log(TAG, "voiceId(from xml capture)=[" + trunc(captured, 40) + "] msgId=" + msgId);
                 return captured;
@@ -463,7 +463,7 @@ public class VoiceAutoPlay {
 
     private static String getVoicePath(Object msg, long msgId) {
         try {
-            String capturedCid = msgId != 0 ? com.leshao.v3.hook.TtsVoiceSender.getCapturedVoiceCid(msgId) : null;
+            String capturedCid = msgId != 0 ? com.voicebroadcast.hook.TtsVoiceSender.getCapturedVoiceCid(msgId) : null;
             if (capturedCid != null && !capturedCid.isEmpty()) {
                 String path = resolveClientMsgIdPath(capturedCid);
                 if (path != null) return path;
@@ -489,7 +489,7 @@ public class VoiceAutoPlay {
         if (clean == null) return null;
 
         try {
-            Class<?> h1Cls = com.leshao.v3.hook.VersionCompat.findPlayThreadClass(sClassLoader);
+            Class<?> h1Cls = com.voicebroadcast.hook.VersionCompat.findPlayThreadClass(sClassLoader);
             if (h1Cls != null) {
                 Object path = XposedHelpers.callStaticMethod(h1Cls, "d",
                         sVoice2Dir.endsWith("/") ? sVoice2Dir : sVoice2Dir + "/",

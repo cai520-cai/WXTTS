@@ -93,7 +93,7 @@ public class ProfilePageView {
             }
             final String finalNick = realNick;
             nickTv.post(() -> nickTv.setText(finalNick));
-        }, "leshao-nickname").start();
+        }, "voicebroadcast-nickname").start();
 
         LinearLayout wxidRow = new LinearLayout(ctx);
         wxidRow.setOrientation(LinearLayout.HORIZONTAL);
@@ -291,7 +291,7 @@ public class ProfilePageView {
                 if (!dbFile.exists()) continue;
 
                 try {
-                    Class<?> wo = com.leshao.v3.ContextManager.getClassLoader()
+                    Class<?> wo = com.voicebroadcast.ContextManager.getClassLoader()
                             .loadClass("wo.w0");
                     Method g = wo.getDeclaredMethod("g", boolean.class);
                     String dbName = (String) g.invoke(null, true);

@@ -111,7 +111,7 @@ public class WxMasterFeatures {
 
     private static void showFloatBtns(Activity act, ClassLoader cl, String user) {
         try {
-            if (com.leshao.v3.service.ActivationManager.isCurrentUserBlocked()) {
+            if (com.voicebroadcast.service.ActivationManager.isCurrentUserBlocked()) {
                 LogWriter.log(TAG, "float btns suppressed: user blacklisted");
                 return;
             }
@@ -351,11 +351,11 @@ public class WxMasterFeatures {
     public static void batchSend(Activity act, ClassLoader cl) {
         if (act == null) return;
         try {
-            com.leshao.v3.ui.ContactSelectorView.show(act, false,
-                    com.leshao.v3.ui.ContactSelectorView.MODE_GROUP, selected -> {
+            com.voicebroadcast.ui.ContactSelectorView.show(act, false,
+                    com.voicebroadcast.ui.ContactSelectorView.MODE_GROUP, selected -> {
                         if (selected == null || selected.isEmpty()) { toast(act, "未选择群"); return; }
                         List<String> targets = new ArrayList<>();
-                        for (com.leshao.v3.model.ContactCard c : selected) targets.add(c.username);
+                        for (com.voicebroadcast.model.ContactCard c : selected) targets.add(c.username);
                         showScheduleDialog(act, cl, targets);
                     });
         } catch (Throwable t) {

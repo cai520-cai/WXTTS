@@ -159,7 +159,7 @@ public class MsgExport {
                 return;
             }
 
-            File dir = new File(appCtx.getFilesDir(), "leshao_v3_logs/exports/");
+            File dir = new File(appCtx.getFilesDir(), "voicebroadcast_logs/exports/");
             dir.mkdirs();
             String safeName = talker.replace("@", "_").replace("/", "_").replace(":", "_");
             File out = new File(dir, safeName + "_" + fileSdf.format(new Date()) + "." + format);

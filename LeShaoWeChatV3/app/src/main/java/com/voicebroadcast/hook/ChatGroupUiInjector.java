@@ -1090,7 +1090,7 @@ public class ChatGroupUiInjector {
                     iv.post(() -> iv.setImageBitmap(scaled));
                 }
             } catch (Throwable ignored) {}
-        }, "leshao-avatar").start();
+        }, "voicebroadcast-avatar").start();
     }
 
     private static String resolveDisplayName(String u) {

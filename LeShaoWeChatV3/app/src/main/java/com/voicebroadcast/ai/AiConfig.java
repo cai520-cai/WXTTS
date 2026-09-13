@@ -6,7 +6,7 @@ import android.content.SharedPreferences;
 import com.voicebroadcast.UnifiedPrefs;
 
 public class AiConfig {
-    private static final String SP = "leshao_v3_prefs";
+    private static final String SP = "voicebroadcast_prefs";
     private static SharedPreferences sp;
 
     public static void init(Context ctx) {

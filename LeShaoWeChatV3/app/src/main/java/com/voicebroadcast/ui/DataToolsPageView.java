@@ -36,10 +36,10 @@ public class DataToolsPageView {
     private static final SimpleDateFormat fileSdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
 
     private static String backupDir(Context ctx) {
-        return ctx.getFilesDir().getAbsolutePath() + "/leshao_v3_logs/backup/";
+        return ctx.getFilesDir().getAbsolutePath() + "/voicebroadcast_logs/backup/";
     }
     private static String exportDir(Context ctx) {
-        return ctx.getFilesDir().getAbsolutePath() + "/leshao_v3_logs/exports/";
+        return ctx.getFilesDir().getAbsolutePath() + "/voicebroadcast_logs/exports/";
     }
 
     public static View create(Context ctx, Activity parentAct) {
@@ -207,7 +207,7 @@ public class DataToolsPageView {
 
     private static void showImportDialog(Context ctx) {
         java.util.List<File> dbFiles = new java.util.ArrayList<>();
-        File importRoot = new File(ctx.getFilesDir(), "leshao_v3_logs");
+        File importRoot = new File(ctx.getFilesDir(), "voicebroadcast_logs");
         findDbFilesRecursive(importRoot, dbFiles, 3);
 
         float d = ctx.getResources().getDisplayMetrics().density;

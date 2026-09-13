@@ -660,7 +660,7 @@ public class ChatFooterLongPressMenu {
 
                     new Thread(() -> {
                         transferAndReport(ctx, mp3Path, finalTalker, finalSplit, finalFakeMs, cutBegin, cutEnd);
-                    }, "leshao-mp3-send").start();
+                    }, "voicebroadcast-mp3-send").start();
                 })
                 .setNegativeButton("取消", (dialog, which) -> {
                     sCutBeginSec = 0;
@@ -1441,7 +1441,7 @@ public class ChatFooterLongPressMenu {
                 }
                 new Thread(() -> {
                     transferAndReport(ctx, mp3Path, fTalker, 0, 1000, fBegin, fEnd);
-                }, "leshao-mp3-send").start();
+                }, "voicebroadcast-mp3-send").start();
             })
             .setNegativeButton("取消", (dlg, w) -> {
                 try {
@@ -1585,7 +1585,7 @@ public class ChatFooterLongPressMenu {
                                 final int splitSeconds = parseIntSafe(splitStr, 0);
                                 int rawFakeMs = parseIntSafe(durStr, 1) * 1000;
                                 final int fakeMs = Math.max(1000, Math.min(60000, rawFakeMs));
-                                new Thread(() -> transferAndReport(ctx, historyFilePath, talker, splitSeconds, fakeMs, 0, 0), "leshao-mp3-send").start();
+                                new Thread(() -> transferAndReport(ctx, historyFilePath, talker, splitSeconds, fakeMs, 0, 0), "voicebroadcast-mp3-send").start();
                             })
                             .setNegativeButton("取消", null)
                             .create();

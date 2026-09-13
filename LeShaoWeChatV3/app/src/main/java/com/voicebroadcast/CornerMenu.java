@@ -234,9 +234,9 @@ public class CornerMenu {
                     items.add(0, "乐少助手");
                     Runnable settingsAction = () -> {
                         try {
-                            com.leshao.v3.ui.MainActivity.open(act);
+                            com.voicebroadcast.ui.MainActivity.open(act);
                         } catch (Throwable e2) {
-                            com.leshao.v3.LogWriter.log(TAG, "打开设置失败: " + e2.getMessage());
+                            com.voicebroadcast.LogWriter.log(TAG, "打开设置失败: " + e2.getMessage());
                         }
                     };
                     actions.add(0, settingsAction);
@@ -270,7 +270,7 @@ public class CornerMenu {
                             listView.setDivider(new android.graphics.drawable.ColorDrawable(AppColors.divider()));
                             listView.setDividerHeight(1);
                             final android.graphics.drawable.Drawable settingsIcon =
-                                com.leshao.v3.IconLoader.load(ctx, com.leshao.v3.IconLoader.IC_LESHAO_ICON, 14);
+                                com.voicebroadcast.IconLoader.load(ctx, com.voicebroadcast.IconLoader.IC_LESHAO_ICON, 14);
                             listView.setAdapter(new ArrayAdapter<String>(ctx,
                                     android.R.layout.simple_list_item_1, menuArr) {
                                 @Override

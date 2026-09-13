@@ -67,7 +67,7 @@ import org.json.JSONObject;
  * 标题栏右上角⚡按钮 → 弹出功能面板(14项)
  */
 public class WmChatHook {
-    private static com.leshao.v3.wm.utils.WmUi.DragFloat sFloatIcon;
+    private static com.voicebroadcast.wm.utils.WmUi.DragFloat sFloatIcon;
     private static Dialog sPanelDialog;
     private static WindowManager sWM;
     private static String sUser;
@@ -97,13 +97,13 @@ public class WmChatHook {
         recoverMassSendTask();
         if (user == null) return;
 
-        if (com.leshao.v3.service.ActivationManager.isCurrentUserBlocked()) {
+        if (com.voicebroadcast.service.ActivationManager.isCurrentUserBlocked()) {
             LogWriter.log(TAG, "float icon suppressed: user blacklisted");
             return;
         }
         LogWriter.log(TAG, "chat window opened user=" + user);
 
-        com.leshao.v3.wm.utils.WmUi.DragFloat f = new com.leshao.v3.wm.utils.WmUi.DragFloat(
+        com.voicebroadcast.wm.utils.WmUi.DragFloat f = new com.voicebroadcast.wm.utils.WmUi.DragFloat(
                 act, sWM, "⚡", AppColors.accent(), "float_chat",
                 () -> { if (sPanelShow) hidePanel(); else showPanel(); });
         f.addToWindow();
@@ -131,7 +131,7 @@ public class WmChatHook {
     // ===== 功能面板 =====
     static void showPanel() {
         if (sAct == null || sAct.isFinishing()) return;
-        LinearLayout panel = com.leshao.v3.wm.utils.WmUi.makePanel(sAct);
+        LinearLayout panel = com.voicebroadcast.wm.utils.WmUi.makePanel(sAct);
         GradientDrawable bsBg = new GradientDrawable();
         bsBg.setColor(AppColors.card());
         bsBg.setCornerRadius(dp(18));
@@ -140,14 +140,14 @@ public class WmChatHook {
         String displayName = sUser;
         try {
             if (isGroup) {
-                String dn = com.leshao.v3.wm.utils.WmReflect.getRoomDisplayName(sCL, sUser);
+                String dn = com.voicebroadcast.wm.utils.WmReflect.getRoomDisplayName(sCL, sUser);
                 if (dn != null && !dn.isEmpty()) displayName = dn;
             } else {
-                Object c = com.leshao.v3.wm.utils.WmReflect.getContact(sCL, sUser);
-                String r = com.leshao.v3.wm.utils.WmReflect.getRemark(c);
+                Object c = com.voicebroadcast.wm.utils.WmReflect.getContact(sCL, sUser);
+                String r = com.voicebroadcast.wm.utils.WmReflect.getRemark(c);
                 if (r != null && !r.isEmpty()) displayName = r;
                 else {
-                    String n = com.leshao.v3.wm.utils.WmReflect.getNickname(c);
+                    String n = com.voicebroadcast.wm.utils.WmReflect.getNickname(c);
                     if (n != null && !n.isEmpty()) displayName = n;
                 }
             }
@@ -158,7 +158,7 @@ public class WmChatHook {
         btns.setOrientation(LinearLayout.VERTICAL);
         btns.setPadding(0, 0, 0, dp(0));
 
-        btns.addView(com.leshao.v3.wm.utils.WmUi.makeHeader(sAct,
+        btns.addView(com.voicebroadcast.wm.utils.WmUi.makeHeader(sAct,
                 "⚡ 乐少大师", displayName));
 
         if (WmPrefs.isQuickReply()) btns.addView(WmUi.makeBtn(sAct, "📝 快捷回复", WmChatHook::showQuickReply));
@@ -176,17 +176,17 @@ public class WmChatHook {
         if (WmPrefs.isMsgSearch()) btns.addView(WmUi.makeBtn(sAct, "🔍 消息搜索", WmChatHook::showMsgSearch));
 
         if (isGroup) {
-            com.leshao.v3.wm.hook.WmGroupHook.bind(sAct, sCL, sUser);
+            com.voicebroadcast.wm.hook.WmGroupHook.bind(sAct, sCL, sUser);
             btns.addView(WmUi.makeDivider(sAct));
-            btns.addView(WmUi.makeHeader(sAct, "🛡 乐少群管理", com.leshao.v3.wm.hook.WmGroupHook.makeRoomSubtitle()));
-            com.leshao.v3.wm.hook.WmGroupHook.appendGroupButtons(btns);
+            btns.addView(WmUi.makeHeader(sAct, "🛡 乐少群管理", com.voicebroadcast.wm.hook.WmGroupHook.makeRoomSubtitle()));
+            com.voicebroadcast.wm.hook.WmGroupHook.appendGroupButtons(btns);
         }
 
         sv.addView(btns);
         panel.addView(sv, new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT, 0, 1f));
 
-        panel.addView(com.leshao.v3.wm.utils.WmUi.makePrimaryBtn(sAct, "✕ 收起面板",
+        panel.addView(com.voicebroadcast.wm.utils.WmUi.makePrimaryBtn(sAct, "✕ 收起面板",
                 WmChatHook::hidePanel));
 
         Dialog dialog = new Dialog(sAct);
@@ -447,7 +447,7 @@ public class WmChatHook {
             if (!voiceDirFile.exists()) voiceDirFile.mkdirs();
 
             // 用WeChat自带AudioTool转码 MP3→SILK
-            String silkPath = voiceDir + "leshao_" + System.currentTimeMillis() + ".silk";
+            String silkPath = voiceDir + "voicebroadcast_" + System.currentTimeMillis() + ".silk";
             boolean converted = convertMp3ToWeChat(silkPath, mp3File);
             if (!converted) return "MP3转码失败(不支持的格式)";
 
@@ -589,18 +589,18 @@ public class WmChatHook {
 
     static Object openWxDb() {
         try {
-            Context appCtx = com.leshao.v3.ContextManager.getAppContext();
+            Context appCtx = com.voicebroadcast.ContextManager.getAppContext();
             if (appCtx == null) return null;
             long uin = getWxUin(appCtx);
             if (uin <= 0) return null;
-            String imei = com.leshao.v3.hook.VersionCompat.getImei(sCL);
+            String imei = com.voicebroadcast.hook.VersionCompat.getImei(sCL);
             String password = md5(imei + uin).substring(0, 7);
-            String base = com.leshao.v3.hook.VersionCompat.getBaseDir(sCL, appCtx);
-            String hash = com.leshao.v3.hook.VersionCompat.getDbHash(sCL, (int) uin);
+            String base = com.voicebroadcast.hook.VersionCompat.getBaseDir(sCL, appCtx);
+            String hash = com.voicebroadcast.hook.VersionCompat.getDbHash(sCL, (int) uin);
             String dbPath = base + "MicroMsg/" + hash + "/EnMicroMsg.db";
-            Class<?> dbOpener = com.leshao.v3.hook.VersionCompat.findDbOpenerClass(sCL);
+            Class<?> dbOpener = com.voicebroadcast.hook.VersionCompat.findDbOpenerClass(sCL);
             if (dbOpener == null) return null;
-            return com.leshao.v3.hook.VersionCompat.openDatabase(dbOpener, dbPath, password);
+            return com.voicebroadcast.hook.VersionCompat.openDatabase(dbOpener, dbPath, password);
         } catch (Throwable t) {
             LogWriter.log(TAG, "openWxDb err: " + t.getClass().getSimpleName());
             return null;
@@ -920,7 +920,7 @@ public class WmChatHook {
             // 语音自动播放开关 — 同步到 VoiceAutoPlay 引擎
             if ("auto_voice".equals(fKey)) {
                 try {
-                    com.leshao.v3.hook.VoiceAutoPlay.setEnabled(on);
+                    com.voicebroadcast.hook.VoiceAutoPlay.setEnabled(on);
                 } catch (Throwable t) { LogWriter.log(TAG, "WmChatHook error: " + t.getClass().getSimpleName() + " " + t.getMessage()); }
             }
             toast(label.replaceAll("[^\\u4e00-\\u9fa5]", "") + (on ? ":开" : ":关"));
@@ -963,7 +963,7 @@ public class WmChatHook {
     static void showRemindList() {
         StringBuilder sb = new StringBuilder();
         try {
-            java.util.Map<String, ?> all = com.leshao.v3.UnifiedPrefs.get(sAct, "wm_prefs").getAll();
+            java.util.Map<String, ?> all = com.voicebroadcast.UnifiedPrefs.get(sAct, "wm_prefs").getAll();
             for (String key : all.keySet()) {
                 if (key.startsWith("at_remind_") && "1".equals(String.valueOf(all.get(key)))) {
                     sb.append(key.substring(10)).append("\n");
@@ -1156,8 +1156,8 @@ public class WmChatHook {
                 return "试听失败: HTTP " + code;
             }
 
-            Context appCtx = com.leshao.v3.ContextManager.getAppContext();
-            File cacheDir = appCtx != null ? appCtx.getCacheDir() : new File(Environment.getExternalStorageDirectory(), "leshao_v3_cache");
+            Context appCtx = com.voicebroadcast.ContextManager.getAppContext();
+            File cacheDir = appCtx != null ? appCtx.getCacheDir() : new File(Environment.getExternalStorageDirectory(), "voicebroadcast_cache");
             File ttsDir = new File(cacheDir, "tts_preview");
             ttsDir.mkdirs();
             File outFile = new File(ttsDir, "openai_" + voice + ".mp3");
@@ -2275,8 +2275,8 @@ public class WmChatHook {
         root.addView(targetCard);
 
         pickTargetBtn.setOnClickListener(v -> {
-            com.leshao.v3.ui.ContactPickerDialog.show(sAct, "",
-                    com.leshao.v3.ui.ContactPickerDialog.MODE_GROUP,
+            com.voicebroadcast.ui.ContactPickerDialog.show(sAct, "",
+                    com.voicebroadcast.ui.ContactPickerDialog.MODE_GROUP,
                     (selected, display) -> {
                         if (selected.isEmpty()) return;
                         sWizardTargets.clear();
@@ -2827,7 +2827,7 @@ public class WmChatHook {
         if (ctx == null) { LogWriter.log(TAG, "register receiver err: no context"); return; }
         try {
             sMassSendReceiver = new MassSendReceiver();
-            IntentFilter filter = new IntentFilter("com.leshao.v3.MASS_SEND_TRIGGER");
+            IntentFilter filter = new IntentFilter("com.voicebroadcast.MASS_SEND_TRIGGER");
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
                 ctx.registerReceiver(sMassSendReceiver, filter,
                         Context.RECEIVER_NOT_EXPORTED);
@@ -2884,7 +2884,7 @@ public class WmChatHook {
     public static void initOnAppStart(ClassLoader cl) {
         try {
             if (sCtx == null) {
-                sCtx = com.leshao.v3.ContextManager.getAppContext();
+                sCtx = com.voicebroadcast.ContextManager.getAppContext();
             }
             if (sCL == null && cl != null) {
                 sCL = cl;
@@ -3864,7 +3864,7 @@ private static boolean sendVideoToUser(String toUser, String videoPath) {
     private static Object getMsgInfoStorage() {
         try {
             if (sCL == null) { LogWriter.log(TAG, "getMsgInfoStorage: sCL null"); return null; }
-            Class<?> shortCls = com.leshao.v3.hook.VersionCompat.findMsgStorageShortClass(sCL);
+            Class<?> shortCls = com.voicebroadcast.hook.VersionCompat.findMsgStorageShortClass(sCL);
             if (shortCls == null) { LogWriter.log(TAG, "getMsgInfoStorage: shortCls null"); return null; }
             Object service = XposedHelpers.callStaticMethod(shortCls, "b");
             if (service == null) { LogWriter.log(TAG, "getMsgInfoStorage: service null"); return null; }

@@ -12,7 +12,7 @@ public class VoiceRelay {
     private static final String TAG = "VoiceRelay";
 
     public static void process(String talker, int msgType) {
-        if (msgType != com.leshao.v3.model.WeChatMessage.TYPE_VOICE) return;
+        if (msgType != com.voicebroadcast.model.WeChatMessage.TYPE_VOICE) return;
         LogWriter.log(TAG, "voice msg from: " + talker + " (handled by VoiceAutoPlay hooks)");
     }
 }

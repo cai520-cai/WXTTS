@@ -29,17 +29,17 @@ public class FilterManager {
         }
 
         switch (msgType) {
-            case com.leshao.v3.model.WeChatMessage.TYPE_TEXT:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_TEXT:
                 return cfg.announceText;
-            case com.leshao.v3.model.WeChatMessage.TYPE_VOICE:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_VOICE:
                 return true;
-            case com.leshao.v3.model.WeChatMessage.TYPE_IMAGE:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_IMAGE:
                 return cfg.announceImage;
-            case com.leshao.v3.model.WeChatMessage.TYPE_CARD:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_CARD:
                 return cfg.announceCard;
-            case com.leshao.v3.model.WeChatMessage.TYPE_VIDEO:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_VIDEO:
                 return cfg.announceVideo;
-            case com.leshao.v3.model.WeChatMessage.TYPE_APPMSG:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_APPMSG:
                 if (content == null) return true;
                 if (content.contains("<location")) return cfg.announceLocation;
                 if (content.contains("<type>57</type>")) return cfg.announceQuote;
@@ -48,9 +48,9 @@ public class FilterManager {
                 if (content.contains("transferid") || content.contains("remittance")
                         || content.contains("transfer")) return cfg.announceTransfer;
                 return true;
-            case com.leshao.v3.model.WeChatMessage.TYPE_STICKER:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_STICKER:
                 return cfg.announceSticker;
-            case com.leshao.v3.model.WeChatMessage.TYPE_VOIP:
+            case com.voicebroadcast.model.WeChatMessage.TYPE_VOIP:
                 return cfg.announceCall;
             default:
                 return true;

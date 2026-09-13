@@ -8,8 +8,8 @@ import java.util.Locale;
 
 public class AiLog {
     private static final String TAG = "LeShaoAI";
-    private static final String LOG_DIR = "/data/data/com.leshao.v3/files";
-    private static final String LOG_FILE = "leshao_ai_log.txt";
+    private static final String LOG_DIR = "/data/data/com.voicebroadcast/files";
+    private static final String LOG_FILE = "voicebroadcast_ai_log.txt";
 
     public static void i(String msg) { log("I", msg); }
     public static void d(String msg) { log("D", msg); }

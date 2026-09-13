@@ -1281,9 +1281,9 @@ boolean announceText = prefs != null && prefs.getBoolean(KEY_ANNOUNCE_TEXT, true
              }
 
              String safeName = voiceId.replaceAll("[^a-zA-Z0-9_\\-\\u4e00-\\u9fa5]", "_");
-             Context appCtx = com.leshao.v3.ContextManager.getAppContext();
+             Context appCtx = com.voicebroadcast.ContextManager.getAppContext();
              File cacheDir = appCtx != null ? appCtx.getCacheDir() : null;
-             if (cacheDir == null) cacheDir = new File(Environment.getExternalStorageDirectory(), "leshao_v3_cache");
+             if (cacheDir == null) cacheDir = new File(Environment.getExternalStorageDirectory(), "voicebroadcast_cache");
              File ttsDir = new File(cacheDir, "tts_preview");
              ttsDir.mkdirs();
              File outFile = new File(ttsDir, safeName + ".wav");

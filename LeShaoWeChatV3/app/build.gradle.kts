@@ -46,7 +46,7 @@ android {
 
     applicationVariants.all {
         outputs.all {
-            (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName = "LeShaoWeChat-v$versionCode.apk"
+            (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName = "VoiceBroadcast-v$versionCode.apk"
         }
     }
 }

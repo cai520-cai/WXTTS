@@ -16,7 +16,7 @@ public class PathUtil {
         } else {
             baseDir = wxContext.getCacheDir();
         }
-        File rootDir = new File(baseDir, "leshao_v3");
+        File rootDir = new File(baseDir, "voicebroadcast");
         ensureDir(rootDir);
         return rootDir;
     }
@@ -29,7 +29,7 @@ public class PathUtil {
         } else {
             baseDir = new File("/data/user/" + userId + "/com.tencent.mm/cache");
         }
-        File rootDir = new File(baseDir, "leshao_v3");
+        File rootDir = new File(baseDir, "voicebroadcast");
         ensureDir(rootDir);
         return rootDir;
     }

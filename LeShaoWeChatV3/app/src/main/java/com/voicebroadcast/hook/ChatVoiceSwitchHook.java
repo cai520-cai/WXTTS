@@ -250,7 +250,7 @@ public final class ChatVoiceSwitchHook {
         Activity act = getActivityFromContext(ctx);
         if (act == null || !isChatPage(act)) return;
 
-        if (com.leshao.v3.UnifiedPrefs.get(edit.getContext(), "wm_prefs")
+        if (com.voicebroadcast.UnifiedPrefs.get(edit.getContext(), "wm_prefs")
                 .getBoolean("input_buttons", true) == false) return;
 
         // 确保注入目标不是弹窗中的输入框
@@ -385,7 +385,7 @@ public final class ChatVoiceSwitchHook {
         TextView mp3Btn = createBlueButton(ctx, "语音", IconLoader.IC_SCHEDULE_SEND, new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                com.leshao.v3.ChatFooterLongPressMenu.showPanelStatic(v);
+                com.voicebroadcast.ChatFooterLongPressMenu.showPanelStatic(v);
             }
         });
         mp3Btn.setLayoutParams(new LinearLayout.LayoutParams(
@@ -437,7 +437,7 @@ public final class ChatVoiceSwitchHook {
         }
         try {
             ClassLoader cl = ContextManager.getClassLoader();
-            com.leshao.v3.wm.hook.WmChatHook.showMassSendFromCorner(act, cl);
+            com.voicebroadcast.wm.hook.WmChatHook.showMassSendFromCorner(act, cl);
         } catch (Throwable t) {
             LogWriter.log(TAG, "群发异常: " + t.getMessage());
             Toast.makeText(act, "群发暂不可用", Toast.LENGTH_SHORT).show();
@@ -462,7 +462,7 @@ public final class ChatVoiceSwitchHook {
         Activity act = getActivityFromContext(ctx);
         if (act == null) return;
         try {
-            com.leshao.v3.wm.hook.WmChatHook.showPanelInline(act);
+            com.voicebroadcast.wm.hook.WmChatHook.showPanelInline(act);
         } catch (Throwable t) {
             LogWriter.log(TAG, "打开乐少大师面板失败: " + t.getMessage());
         }

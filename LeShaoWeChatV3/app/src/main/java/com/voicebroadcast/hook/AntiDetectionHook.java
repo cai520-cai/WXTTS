@@ -50,7 +50,7 @@ public class AntiDetectionHook {
 
     public static void hook(ClassLoader cl) {
         try {
-            android.content.SharedPreferences p = com.leshao.v3.ContextManager.getPrefs();
+            android.content.SharedPreferences p = com.voicebroadcast.ContextManager.getPrefs();
             if (p != null) sEnabled = p.getBoolean("ls_anti_detection", true);
         } catch (Throwable ignored) {}
 
