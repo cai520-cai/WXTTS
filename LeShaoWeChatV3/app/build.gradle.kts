@@ -3,12 +3,12 @@ plugins {
 }
 
 android {
-    namespace = "com.leshao.v3"
+    namespace = "com.voicebroadcast"
     compileSdk = 35
     buildToolsVersion = "35.0.0"
 
     defaultConfig {
-        applicationId = "com.leshao.v3"
+        applicationId = "com.voicebroadcast"
         minSdk = 24
         targetSdk = 35
         versionCode = 803

@@ -15,7 +15,7 @@
             android:value="true" />
         <meta-data
             android:name="xposeddescription"
-            android:value="com.leshao.v3" />
+            android:value="com.voicebroadcast" />
         <meta-data
             android:name="xposedminversion"
             android:value="102" />
@@ -24,9 +24,9 @@
             android:value="com.tencent.mm" />
 
         <activity
-            android:name="com.leshao.v3.SettingsActivity"
+            android:name="com.voicebroadcast.SettingsActivity"
             android:exported="true"
-            android:label="微信乐少助手"
+            android:label="语音播报设置"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity
