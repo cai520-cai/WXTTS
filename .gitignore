@@ -6,3 +6,9 @@ WeChatXposedModule/.git
 LeShaoWeChatV3/*.apk
 LeShaoWeChatV3/*.zip
 LeShaoWeChatV3/*.keystore
+apk_work/
+.monkeycode/
+.monkeycode-tmp-files/
+*.apk
+*.zip
+*.keystore

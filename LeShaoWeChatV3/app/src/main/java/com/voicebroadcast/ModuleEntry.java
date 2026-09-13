@@ -10,6 +10,6 @@ public class ModuleEntry implements IXposedHookLoadPackage {
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam lpparam) throws Throwable {
         LauncherMenuHook.hook(lpparam.classLoader);
-        MessageHook.init(lpparam);
+        MessageHook.hook(lpparam.classLoader);
     }
 }

@@ -5,8 +5,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.voicebroadcast.LogWriter;
-import com.voicebroadcast.v3.ui.SubPageActivity;
-import com.voicebroadcast.BuildConfig;
+import com.voicebroadcast.ui.SubPageActivity;
 
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XposedBridge;

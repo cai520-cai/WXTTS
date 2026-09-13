@@ -1,2 +1,4 @@
 .gradle/
 ../apk_work/
+.monkeycode/
+.monkeycode-tmp-files/

@@ -1,0 +1,58 @@
+package com.voicebroadcast.service;
+
+import com.voicebroadcast.ContactRepository;
+import com.voicebroadcast.model.ContactCard;
+
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.Map;
+
+public class NicknameResolver {
+
+    private static final Map<String, String> sCache = new ConcurrentHashMap<>();
+
+    public static void init() {
+        sCache.clear();
+    }
+
+    public String resolveDisplayName(String wxid) {
+        if (wxid == null || wxid.isEmpty()) return "未知";
+
+        String cached = sCache.get(wxid);
+        if (cached != null) return cached;
+
+        // 优先从已加载的 ContactRepository 同步查找
+        ContactCard c = ContactRepository.findByUsername(wxid);
+        if (c != null) {
+            String name = c.displayName();
+            sCache.put(wxid, name);
+            return name;
+        }
+
+        // 群成员/非好友: 从 rcontact 全表按需查询(备注优先, 其次昵称)
+        String anyName = ContactRepository.queryAnyContactName(wxid);
+        if (anyName != null && !anyName.isEmpty()) {
+            sCache.put(wxid, anyName);
+            return anyName;
+        }
+
+        // 触发异步加载供后续使用
+        ContactRepository.loadAsync(() -> {
+            ContactCard c2 = ContactRepository.findByUsername(wxid);
+            if (c2 != null) {
+                sCache.put(wxid, c2.displayName());
+            }
+        });
+
+        String name = fallbackName(wxid);
+        sCache.put(wxid, name);
+        return name;
+    }
+
+    private static String fallbackName(String wxid) {
+        if (wxid == null || wxid.isEmpty()) return "未知";
+        if (wxid.startsWith("gh_")) return "公众号";
+        if (wxid.endsWith("@chatroom")) return "群聊";
+        if (wxid.startsWith("wxid_")) return "好友";
+        return "好友";
+    }
+}

@@ -1,0 +1,486 @@
+package com.voicebroadcast.hook;
+
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.GradientDrawable;
+import android.os.Handler;
+import android.os.Looper;
+import android.view.Gravity;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.voicebroadcast.ContextManager;
+import com.voicebroadcast.IconLoader;
+import com.voicebroadcast.LogWriter;
+import com.voicebroadcast.ui.AppColors;
+import com.voicebroadcast.ui.TTSPageView;
+
+import java.lang.reflect.Constructor;
+
+import de.robv.android.xposed.XC_MethodHook;
+import de.robv.android.xposed.XposedBridge;
+import de.robv.android.xposed.XposedHelpers;
+
+/**
+ * 微信聊天输入框上方注入 "音色切换" 与 "万群转发" 按钮（渐变流体糖果霓虹风格）
+ * 多方案兜底：
+ *   方案A：Hook MMEditText 构造函数
+ *   方案B：Hook TextView.onTextChanged 兜底捕获输入框
+ *   方案C：Hook EditText 构造函数兜底
+ *   方案D：View.onAttachedToWindow 兜底
+ *   方案E：Activity onResume 主动扫描
+ */
+public final class ChatVoiceSwitchHook {
+
+    private static final String TAG = "ChatVoiceSwitchHook";
+    private static final String MM_EDIT_TEXT = "com.tencent.mm.ui.widget.MMEditText";
+    private static final String MAX_HEIGHT_SCROLL = "com.tencent.mm.view.MaxHeightScrollView";
+
+    // 糖果霓虹渐变（粉 → 霓虹粉 → 紫 → 青）
+    private static final int[] NEON_GRADIENT = new int[]{
+            0xFFFF94C2, 0xFFFF10F0, 0xFF7B2FF7, 0xFF36D1E8
+    };
+
+    // 原文字 12 → 放大 = 14sp
+    private static final int BTN_TEXT_SIZE = 14;
+    private static final long INJECT_DELAY_MS = 600;
+    private static final int MAX_RETRY = 10;
+
+    // 用 view tag 防止同一输入框重复注入，同时避免多方案竞争
+    private static final Object PENDING_TAG = new Object();
+    private static final Object INJECTED_TAG = new Object();
+
+    private ChatVoiceSwitchHook() {
+    }
+
+    public static void init(final ClassLoader loader) {
+        hookMMEditText(loader, 0);
+        hookGenericEditText();
+        hookEditTextConstructors();
+        hookOnAttachedToWindow();
+        hookActivityResume(loader);
+    }
+
+    // ==================== 方案A：Hook MMEditText 构造器 ====================
+
+    private static void hookMMEditText(final ClassLoader loader, final int attempt) {
+        try {
+            Class<?> editClazz = findClassIfExists(MM_EDIT_TEXT, loader);
+            if (editClazz == null) {
+                retryHook(loader, attempt);
+                return;
+            }
+            for (Constructor<?> c : editClazz.getDeclaredConstructors()) {
+                XposedBridge.hookMethod(c, new XC_MethodHook() {
+                    @Override
+                    protected void afterHookedMethod(MethodHookParam param) {
+                        LogWriter.log(TAG, "方案A: MMEditText 构造触发");
+                        scheduleInject(param.thisObject);
+                    }
+                });
+            }
+            LogWriter.log(TAG, "方案A: MMEditText Hook 已挂载");
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案A hook 异常: " + t);
+            retryHook(loader, attempt);
+        }
+    }
+
+    private static Class<?> findClassIfExists(String className, ClassLoader loader) {
+        try {
+            return XposedHelpers.findClass(className, loader);
+        } catch (Throwable ignored) {
+            return null;
+        }
+    }
+
+    private static void retryHook(final ClassLoader loader, final int attempt) {
+        if (attempt > MAX_RETRY) {
+            LogWriter.log(TAG, "方案A 重试超限");
+            return;
+        }
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                hookMMEditText(loader, attempt + 1);
+            }
+        }, 2000);
+    }
+
+    // ==================== 方案B：通用捕获（任何版本都有效） ====================
+
+    private static void hookGenericEditText() {
+        try {
+            XposedBridge.hookAllMethods(TextView.class, "onTextChanged", new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) {
+                    Object tv = param.thisObject;
+                    if (tv instanceof EditText && isMMEditText((View) tv)) {
+                        LogWriter.log(TAG, "方案B: 捕获到输入框 " + tv.getClass().getName());
+                        scheduleInject((View) tv);
+                    }
+                }
+            });
+            LogWriter.log(TAG, "方案B: TextView.onTextChanged 兜底已挂载");
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案B 挂载失败: " + t);
+        }
+    }
+
+    // ==================== 方案C：Hook EditText 构造函数兜底 ====================
+
+    private static void hookEditTextConstructors() {
+        try {
+            XposedBridge.hookAllConstructors(EditText.class, new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) {
+                    if (param.thisObject == null) return;
+                    if (isMMEditText((View) param.thisObject)) {
+                        LogWriter.log(TAG, "方案C: EditText 构造触发 " + param.thisObject.getClass().getName());
+                        scheduleInject(param.thisObject);
+                    }
+                }
+            });
+            LogWriter.log(TAG, "方案C: EditText 构造 Hook 已挂载");
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案C 挂载失败: " + t);
+        }
+    }
+
+    // ==================== 方案D：onAttachedToWindow 兜底 ====================
+
+    private static void hookOnAttachedToWindow() {
+        try {
+            XposedBridge.hookAllMethods(View.class, "onAttachedToWindow", new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) {
+                    if (param.thisObject == null) return;
+                    if (isMMEditText((View) param.thisObject)) {
+                        LogWriter.log(TAG, "方案D: onAttachedToWindow 捕获 " + param.thisObject.getClass().getName());
+                        scheduleInject((View) param.thisObject);
+                    }
+                }
+            });
+            LogWriter.log(TAG, "方案D: View.onAttachedToWindow 兜底已挂载");
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案D 挂载失败: " + t);
+        }
+    }
+
+    // ==================== 方案E：Activity onResume 主动扫描兜底 ====================
+
+    private static void hookActivityResume(final ClassLoader loader) {
+        try {
+            Class<?> activityCls = XposedHelpers.findClass("android.app.Activity", loader);
+            XposedBridge.hookAllMethods(activityCls, "onResume", new XC_MethodHook() {
+                @Override
+                protected void afterHookedMethod(MethodHookParam param) {
+                    final Activity act = (Activity) param.thisObject;
+                    if (act == null) return;
+                    if (!isChatPage(act)) return;
+                    new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            scanAndInject(act);
+                        }
+                    }, 1200);
+                }
+            });
+            LogWriter.log(TAG, "方案E: Activity.onResume 兜底已挂载");
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案E 挂载失败: " + t);
+        }
+    }
+
+    private static boolean isChatPage(Activity act) {
+        String name = act.getClass().getName().toLowerCase();
+        // 默认允许注入，仅排除已知非聊天页面
+        if (name.contains("luckymoney")) return false;
+        if (name.contains("redpacket") || name.contains("collection")) return false;
+        if (name.contains("setting") || name.contains("profile")
+            || name.contains("plugin") || name.contains("webview")) return false;
+        return true;
+    }
+
+    private static void scanAndInject(Activity act) {
+        try {
+            View decor = act.getWindow().getDecorView();
+            if (decor == null) return;
+            View target = findMMEditText(decor);
+            if (target != null) {
+                LogWriter.log(TAG, "方案E: 扫描到输入框 " + target.getClass().getName());
+                scheduleInject(target);
+            }
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "方案E 扫描异常: " + t);
+        }
+    }
+
+    private static View findMMEditText(View view) {
+        if (isMMEditText(view)) return view;
+        if (view instanceof ViewGroup) {
+            ViewGroup vg = (ViewGroup) view;
+            for (int i = 0; i < vg.getChildCount(); i++) {
+                View found = findMMEditText(vg.getChildAt(i));
+                if (found != null) return found;
+            }
+        }
+        return null;
+    }
+
+    // ==================== 注入 ====================
+
+    private static boolean isMMEditText(View view) {
+        if (view == null) return false;
+        return MM_EDIT_TEXT.equals(view.getClass().getName());
+    }
+
+    private static void scheduleInject(final Object editObj) {
+        if (editObj == null) return;
+        final View edit = (View) editObj;
+        if (!isMMEditText(edit)) return;
+
+        Context ctx = edit.getContext();
+        if (ctx == null) return;
+        Activity act = getActivityFromContext(ctx);
+        if (act == null || !isChatPage(act)) return;
+
+        if (com.leshao.v3.UnifiedPrefs.get(edit.getContext(), "wm_prefs")
+                .getBoolean("input_buttons", true) == false) return;
+
+        // 确保注入目标不是弹窗中的输入框
+        try {
+            View root = edit.getRootView();
+            if (root != null) {
+                String rootCls = root.getClass().getName();
+                if (rootCls.contains("Popup") || rootCls.contains("Dialog")
+                    || rootCls.contains("popup") || rootCls.contains("dialog")) {
+                    return;
+                }
+            }
+        } catch (Throwable ignored) {}
+
+        // 多方案竞争防护：PENDING 表示已有方案在排队注入
+        if (edit.getTag() == PENDING_TAG || edit.getTag() == INJECTED_TAG) return;
+        edit.setTag(PENDING_TAG);
+
+        new Handler(Looper.getMainLooper()).postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (edit.getTag() == INJECTED_TAG) return;
+                    Context ctx = edit.getContext();
+                    if (ctx == null) return;
+                    View row = createButtonRow(ctx);
+                    if (injectAt(edit, row)) {
+                        edit.setTag(INJECTED_TAG);
+                        LogWriter.log(TAG, "注入成功!");
+                    } else {
+                        edit.setTag(null);
+                        LogWriter.log(TAG, "注入失败: 找不到合适的父容器");
+                    }
+                } catch (Throwable t) {
+                    edit.setTag(null);
+                    LogWriter.log(TAG, "注入异常: " + t);
+                }
+            }
+        }, INJECT_DELAY_MS);
+    }
+
+    /** 多级兜底注入：返回是否成功（参照 ChatQuickBar 逆向结论） */
+    private static boolean injectAt(View edit, View row) {
+        // 找到输入框行（MaxHeightScrollView，输入框第3层祖先）
+        View mhs = findAncestor(edit, MAX_HEIGHT_SCROLL, 6);
+        if (mhs == null) return false;
+
+        // 优先：插入到输入框行父级的父级 LinearLayout（聊天根布局，输入框正上方）
+        ViewParent rel = mhs.getParent();
+        if (rel != null && rel.getParent() instanceof LinearLayout) {
+            LinearLayout grand = (LinearLayout) rel.getParent();
+            row.setLayoutParams(new LinearLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            grand.addView(row, grand.indexOfChild((View) rel));
+            return true;
+        }
+        // 兜底：插入到输入框行的父 RelativeLayout 中，MaxHeightScrollView 之前
+        if (rel instanceof ViewGroup) {
+            ViewGroup relVg = (ViewGroup) rel;
+            row.setLayoutParams(new android.widget.RelativeLayout.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+            relVg.addView(row, relVg.indexOfChild(mhs));
+            return true;
+        }
+        return false;
+    }
+
+    private static View findAncestor(View view, String className, int maxDepth) {
+        ViewParent node = view.getParent();
+        int depth = 0;
+        while (node != null && depth < maxDepth) {
+            if (node.getClass().getName().equals(className)) {
+                return (View) node;
+            }
+            node = node.getParent();
+            depth++;
+        }
+        return null;
+    }
+
+    // ==================== UI ====================
+
+    private static android.widget.HorizontalScrollView createButtonRow(Context ctx) {
+        float density = ctx.getResources().getDisplayMetrics().density;
+
+        LinearLayout row = new LinearLayout(ctx);
+        row.setOrientation(LinearLayout.HORIZONTAL);
+        row.setGravity(Gravity.CENTER_VERTICAL);
+        row.setPadding(0, (int) (5 * density),
+                0, (int) (5 * density));
+
+        // 音色：文字蓝色 + 音色列表图标（细边框背景）
+        TextView btn = createBlueButton(ctx, "音色", IconLoader.IC_VOICE_LIST, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTtsPage(ctx);
+            }
+        });
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lp.setMargins(0, 0, (int) (6 * density), 0);
+        btn.setLayoutParams(lp);
+        row.addView(btn);
+
+        // 群发：文字蓝色 + 定时群发图标（细边框背景），点击进入乐少万群定时群发
+        TextView schedBtn = createBlueButton(ctx, "群发", IconLoader.IC_SCHEDULE_SEND, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMassSend(ctx);
+            }
+        });
+        LinearLayout.LayoutParams lpSched = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lpSched.setMargins(0, 0, (int) (6 * density), 0);
+        schedBtn.setLayoutParams(lpSched);
+        row.addView(schedBtn);
+
+        // 助手：文字蓝色 + 细边框背景，点击打开功能面板
+        TextView masterBtn = createBlueButton(ctx, "助手", IconLoader.IC_SCHEDULE_SEND, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openMasterPanel(ctx, v);
+            }
+        });
+        LinearLayout.LayoutParams lpMaster = new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        lpMaster.setMargins(0, 0, (int) (6 * density), 0);
+        masterBtn.setLayoutParams(lpMaster);
+        row.addView(masterBtn);
+
+        // 语音：文字蓝色 + 细边框背景，点击打开音频选择面板
+        TextView mp3Btn = createBlueButton(ctx, "语音", IconLoader.IC_SCHEDULE_SEND, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                com.leshao.v3.ChatFooterLongPressMenu.showPanelStatic(v);
+            }
+        });
+        mp3Btn.setLayoutParams(new LinearLayout.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        row.addView(mp3Btn);
+
+        android.widget.HorizontalScrollView scroll = new android.widget.HorizontalScrollView(ctx);
+        scroll.setHorizontalScrollBarEnabled(false);
+        scroll.setOverScrollMode(View.OVER_SCROLL_NEVER);
+        scroll.setPadding(0, 0, 0, 0);
+        scroll.addView(row, new ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
+        return scroll;
+    }
+
+    /** 蓝色文字 + 图标 + 细边框背景的按钮（糖果霓虹风格） */
+    private static TextView createBlueButton(final Context ctx, String text,
+                                             final int iconId, View.OnClickListener listener) {
+        TextView btn = new TextView(ctx);
+        btn.setText(text);
+        btn.setTextSize(BTN_TEXT_SIZE);
+        btn.setTextColor(AppColors.accent());
+        btn.setTypeface(null, android.graphics.Typeface.BOLD);
+        btn.setGravity(Gravity.CENTER);
+        btn.setSingleLine(true);
+
+        float density = ctx.getResources().getDisplayMetrics().density;
+        GradientDrawable bg = new GradientDrawable();
+        bg.setColor(android.graphics.Color.TRANSPARENT);
+        bg.setStroke((int)(1 * density), AppColors.accent());
+        bg.setCornerRadius((int)(4 * density));
+        btn.setBackground(bg);
+
+        // 图标（若加载失败则仅显示文字）
+        IconLoader.setCompoundLeft(btn, IconLoader.load(ctx, iconId, 20));
+
+        btn.setPadding((int) (7 * density), (int) (7 * density),
+                (int) (7 * density), (int) (7 * density));
+        btn.setOnClickListener(listener);
+        return btn;
+    }
+
+    /** 群发：打开乐少万群定时群发（完整版群发向导） */
+    private static void openMassSend(Context ctx) {
+        final Activity act = getActivityFromContext(ctx);
+        if (act == null) {
+            LogWriter.log(TAG, "群发: 无法获取 Activity");
+            return;
+        }
+        try {
+            ClassLoader cl = ContextManager.getClassLoader();
+            com.leshao.v3.wm.hook.WmChatHook.showMassSendFromCorner(act, cl);
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "群发异常: " + t.getMessage());
+            Toast.makeText(act, "群发暂不可用", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private static void openTtsPage(Context ctx) {
+        Activity act = getActivityFromContext(ctx);
+        if (act == null) {
+            LogWriter.log(TAG, "无法获取 Activity");
+            return;
+        }
+        try {
+            float density = ctx.getResources().getDisplayMetrics().density;
+            TTSPageView.showTtsCubeDialog(act, act, density);
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "打开音色选择失败: " + t.getMessage());
+        }
+    }
+
+    private static void openMasterPanel(Context ctx, View anchor) {
+        Activity act = getActivityFromContext(ctx);
+        if (act == null) return;
+        try {
+            com.leshao.v3.wm.hook.WmChatHook.showPanelInline(act);
+        } catch (Throwable t) {
+            LogWriter.log(TAG, "打开乐少大师面板失败: " + t.getMessage());
+        }
+    }
+
+    private static Activity getActivityFromContext(Context ctx) {
+        if (ctx instanceof Activity) return (Activity) ctx;
+        if (ctx instanceof android.content.ContextWrapper) {
+            Context base = ((android.content.ContextWrapper) ctx).getBaseContext();
+            while (base != null) {
+                if (base instanceof Activity) return (Activity) base;
+                if (base instanceof android.content.ContextWrapper) {
+                    base = ((android.content.ContextWrapper) base).getBaseContext();
+                } else {
+                    break;
+                }
+            }
+        }
+        return null;
+    }
+}
